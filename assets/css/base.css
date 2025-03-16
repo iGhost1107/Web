@@ -1,0 +1,251 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    list-style: none;
+}
+
+
+:root {
+    --bg-color: #ffffff;
+    --text-color: #0f172a;
+    --main-color: #6b7280;
+    --other-color: #334155;
+    --big-font: 4.3rem;
+    --h2-font: 2.2rem;
+    --p-font: 1rem;
+}
+
+body {
+    color: var(--text-color);
+    background: var(--bg-color);
+}
+
+
+header {
+    right: 0;
+    top: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    z-index: 1000;
+    background: transparent;
+    padding: 17px 11%;
+    border-bottom: 1px solid #f7f9fb;
+    transition: all .45s ease;
+}
+
+.grid {
+    .row{
+        .column {
+
+        }
+        .column {
+            
+        }
+
+    }
+    width: 1400px;
+    max-width:100% ;
+    margin: 0 auto;
+}
+
+.grid__full-width {
+    width: 100%;
+}
+
+.grid__row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -12px;
+    margin-right: 12px;
+}
+
+.grid__column-2{
+    padding-left: 12px;
+    padding-right: 12px;
+    width: 20%;
+    background-color: #e3ffe6;
+    height: 300px;
+}
+
+.grid__column-2-4{
+    margin-left: 20px;
+    padding-left: 12px;
+    padding-right: 12px;
+    width: 22%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.grid__column-10{
+    padding-left: 12px;
+    padding-right: 12px;
+    width: 80%;
+
+}
+.logo img{
+    width: 100%;
+    height: auto;
+}
+
+
+.navbar {
+    display: flex;
+    margin-right: 200px;
+}
+
+
+.navbar a{
+    font-size: var(--p-font);
+    color: var(--other-color);
+    font-weight: 400;
+    padding: 10px 30px;
+    margin: 0 5px;
+    background: transparent;
+    border-radius: 30px;
+    transition: all .45s ease;
+}
+
+
+.navbar a:hover{
+    background: #eaeced;
+}
+
+
+.navbar a.active {
+    background: #f7f9fb;
+}
+
+
+.icons {
+    display: flex;
+    align-items: center;
+}
+
+.icons i{
+    height: 50px;
+    width: 50px;
+    background: #f7f9fb;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: var(--other-color);
+    font-size: 22px;
+    margin-right: 25px;
+    margin-left: 10px;
+    transition: all .45s ease;
+}
+
+
+.icons i:hover{
+    transform: scale(0.9);
+}
+
+#menu-icon {
+    color: var(--other-color);
+    font-size: 33px;
+    z-index: 10001;
+    cursor: pointer;
+    display: none;
+}
+section {
+    padding: 100px 11% 90px;
+}
+
+.btn {
+    min-width: 124px;
+    height: 34px;
+    text-decoration: none;
+    border: none;
+    border-radius: 2px;
+    font-size: 1rem;
+    padding: 0 12px;
+    outline: none;
+    cursor: pointer;
+    color: var(--text-color);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.6rem;
+}
+
+.btn--primary {
+    background-color: #e3ffe6;
+}
+
+.select-input{
+    position: relative;
+    min-width: 170px;
+    height: 34px;
+    padding: 0 12px;
+    border-radius: 2px;
+    background-color: #eeeeee;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.select-input__lable{
+    font-size: 1.2rem;
+}
+.select-input__icon {
+    font-size: 1rem;
+    position: relative;
+    top: 1px;
+}
+
+.select-input:hover .select-input__list{
+    display: block;
+}
+
+.select-input__list{
+    position:absolute;
+    left: 0;
+    right: 0;
+    top: 30px;
+    border-radius: 2px;
+    background-color:#eeeeee ;
+    padding: 8px 16px;
+    list-style: none;
+    display: none;
+}
+
+.select-intput__link{
+    font-size: 1rem;
+    color: var(--text-color);
+    text-decoration: none;
+    display: block;
+    padding: 4px 0 ;
+}
+
+.select-intput__link:hover {
+    background-color: #e3ffe6;
+}
+
+footer {
+    width: 100%;
+    background: var(--bg-color);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 10px 0;
+    text-align: center;
+    border-top: 1px solid #f7f9fb;
+}
+
+.end-text p{
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    color: var(--other-color);
+}
+
+
+
