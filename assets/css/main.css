@@ -186,4 +186,9 @@ header {
     text-align: center;
     cursor: pointer;
 }
+.grid__row:last-child .grid__column-2-4 {
+    margin-bottom: 50px;
+}
+
+
 
