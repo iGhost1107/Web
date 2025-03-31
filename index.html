@@ -42,14 +42,24 @@
                 <div class="grid__row app__content">
                     <div class="grid__column-2">
                         <vav class="category">
-                                <h4 class="category__heading1">DANH MỤC SẢN PHẨM</h4>
-                                <ul class="category-list1">
-                                    <li><a href="#" class="category-list__name">Vi điều khiển PLC</a></li>
-                                    <li><a href="#" class="category-list__name category-list__active">ARV</a></li>
-                                    <li><a href="#" class="category-list__name">Arduino</a></li>
-                                    <li><a href="#" class="category-list__name">Raspberry</a></li>
-                                </ul>
-                                
+                            <h4 class="category__heading1">Danh mục sản phẩm</h4>
+                            <ul class="category-list1">
+                                <li><a href="#" class="category-list__name category-list__active" data-category="all">Tất cả sản phẩm</a></li>
+                                <li><a href="#" class="category-list__name" data-category="plc">Vi điều khiển PLC</a></li>
+                                <li><a href="#" class="category-list__name" data-category="avr">AVR</a></li>
+                                <li><a href="#" class="category-list__name" data-category="arduino">Arduino</a></li>
+                                <li><a href="#" class="category-list__name" data-category="raspberry">Raspberry</a></li>
+                            </ul>
+
+                            
+                            <h4 class="category__heading1">Lọc theo hãng</h4>
+                            <ul class="brand-list category-list1">
+                                <li><input type="checkbox" name="brand" value="stm"> STM</li>
+                                <li><input type="checkbox" name="brand" value="microchip"> Microchip</li>
+                                <li><input type="checkbox" name="brand" value="atmel"> Atmel</li>
+                            </ul>
+
+ 
                                 <!-- <h4 class="category__heading1">MÀU SẮC</h4>
                                 <ul class="category-list1"></ul>
                                     <div class="color-options">
@@ -90,98 +100,78 @@
                     </div>
                     <div class="grid__column-10">
                         <h3 class="category__heading">AVR</h3>
-                        
                         <div class="home-product">
                             <div class="grid__row">
-                                <div class="grid__column-2-4">
-                                    <!-- product item -->
+                                <div class="grid__column-2-4" data-category="avr" data-brand="microchip">
+                                    <div class="home-product-item">
+                                        <div class="home-product-item__img" style="background-image: url('link-image-microchip');"></div>
+                                        <h5 class="home-product-item__name">PIC16F877A</h5>
+                                        <div class="home-product-item__price"><span>150.000đ</span></div>
+                                    </div>
+                                </div>
+
+                                <div class="grid__column-2-4" data-category="plc" data-brand="stm">
+                                    <div class="home-product-item">
+                                        <div class="home-product-item__img" style="background-image: url('link-image-stm');"></div>
+                                        <h5 class="home-product-item__name">Vi điều khiển STM32</h5>
+                                        <div class="home-product-item__price"><span>120.000đ</span></div>
+                                    </div>
+                                </div>
+                        
+                                <div class="grid__column-2-4" data-category="arduino" data-brand="atmel">
+                                    <div class="home-product-item">
+                                        <div class="home-product-item__img" style="background-image: url('link-image-atmel');"></div>
+                                        <h5 class="home-product-item__name">AVR ATmega328P</h5>
+                                        <div class="home-product-item__price"><span>90.000đ</span></div>
+                                    </div>
+                                </div>
+                                <div class="grid__column-2-4" data-category="arduino" data-brand="atmel">
+                                    <div class="home-product-item">
+                                        <div class="home-product-item__img" style="background-image: url('link-image-atmel');"></div>
+                                        <h5 class="home-product-item__name">AVR ATmega328P</h5>
+                                        <div class="home-product-item__price"><span>90.000đ</span></div>
+                                    </div>
+                                </div>
+                                <div class="grid__column-2-4" data-category="arduino" data-brand="atmel">
+                                    <div class="home-product-item">
+                                        <div class="home-product-item__img" style="background-image: url('link-image-atmel');"></div>
+                                        <h5 class="home-product-item__name">AVR ATmega328P</h5>
+                                        <div class="home-product-item__price"><span>90.000đ</span></div>
+                                    </div>
+                                </div>
+                                <div class="grid__column-2-4" data-category="arduino" data-brand="atmel">
+                                    <div class="home-product-item">
+                                        <div class="home-product-item__img" style="background-image: url('link-image-atmel');"></div>
+                                        <h5 class="home-product-item__name">AVR ATmega328P</h5>
+                                        <div class="home-product-item__price"><span>90.000đ</span></div>
+                                    </div>
+                                </div>
+                                <div class="grid__column-2-4" data-category="arduino" data-brand="atmel">
+                                    <div class="home-product-item">
+                                        <div class="home-product-item__img" style="background-image: url('link-image-atmel');"></div>
+                                        <h5 class="home-product-item__name">AVR ATmega328P</h5>
+                                        <div class="home-product-item__price"><span>90.000đ</span></div>
+                                    </div>
+                                </div>
+                                <div class="grid__column-2-4" data-category="arduino" data-brand="atmel">
+                                    <div class="home-product-item">
+                                        <div class="home-product-item__img" style="background-image: url('link-image-atmel');"></div>
+                                        <h5 class="home-product-item__name">AVR ATmega328P</h5>
+                                        <div class="home-product-item__price"><span>90.000đ</span></div>
+                                    </div>
+                                </div>
+                                <!-- <div class="grid__column-2-4">
+                                    product item
                                      <div class="home-product-item">
                                         <div class="home-product-item__img" style="background-image: url(https://bizweb.dktcdn.net/thumb/1024x1024/100/318/319/products/linh-kien-pic16f874-20-dip40-1.png?v=1740588216520);"></div>
                                         <h5 class="home-product-item__name">Linh kiện PIC16F874-20 DIP40</h5>
                                         <div class="home-product-item__price">
                                             <span class="home-product-item__price-curent">55.000đ</span>
                                         </div>                            
-                                     </div>                                                            
-                            
-                                </div>
-                                <div class="grid__column-2-4">
-                                    <!-- product item -->
-                                     <div class="home-product-item">
-                                        <div class="home-product-item__img" style="background-image: url(https://bizweb.dktcdn.net/thumb/1024x1024/100/318/319/products/linh-kien-pic16f874-20-dip40-1.png?v=1740588216520);"></div>
-                                        <h5 class="home-product-item__name">Linh kiện PIC16F874-20 DIP40</h5>
-                                        <div class="home-product-item__price">
-                                            <span class="home-product-item__price-curent">55.000đ</span>
-                                        </div>                            
-                                     </div>                                                            
-                            
-                                </div>
-                                <div class="grid__column-2-4">
-                                    <!-- product item -->
-                                     <div class="home-product-item">
-                                        <div class="home-product-item__img" style="background-image: url(https://bizweb.dktcdn.net/thumb/1024x1024/100/318/319/products/linh-kien-pic16f874-20-dip40-1.png?v=1740588216520);"></div>
-                                        <h5 class="home-product-item__name">Linh kiện PIC16F874-20 DIP40</h5>
-                                        <div class="home-product-item__price">
-                                            <span class="home-product-item__price-curent">55.000đ</span>
-                                        </div>                            
-                                     </div>                                                            
-                            
-                                </div>
-                                <div class="grid__column-2-4">
-                                    <!-- product item -->
-                                     <div class="home-product-item">
-                                        <div class="home-product-item__img" style="background-image: url(https://bizweb.dktcdn.net/thumb/1024x1024/100/318/319/products/linh-kien-pic16f874-20-dip40-1.png?v=1740588216520);"></div>
-                                        <h5 class="home-product-item__name">Linh kiện PIC16F874-20 DIP40</h5>
-                                        <div class="home-product-item__price">
-                                            <span class="home-product-item__price-curent">55.000đ</span>
-                                        </div>                            
-                                     </div>                                                            
-                            
-                                </div>
-                                <div class="grid__column-2-4">
-                                    <!-- product item -->
-                                     <div class="home-product-item">
-                                        <div class="home-product-item__img" style="background-image: url(https://bizweb.dktcdn.net/thumb/1024x1024/100/318/319/products/linh-kien-pic16f874-20-dip40-1.png?v=1740588216520);"></div>
-                                        <h5 class="home-product-item__name">Linh kiện PIC16F874-20 DIP40</h5>
-                                        <div class="home-product-item__price">
-                                            <span class="home-product-item__price-curent">55.000đ</span>
-                                        </div>                            
-                                     </div>                                                            
-                            
-                                </div>
-                                <div class="grid__column-2-4">
-                                    <!-- product item -->
-                                     <div class="home-product-item">
-                                        <div class="home-product-item__img" style="background-image: url(https://bizweb.dktcdn.net/thumb/1024x1024/100/318/319/products/linh-kien-pic16f874-20-dip40-1.png?v=1740588216520);"></div>
-                                        <h5 class="home-product-item__name">Linh kiện PIC16F874-20 DIP40</h5>
-                                        <div class="home-product-item__price">
-                                            <span class="home-product-item__price-curent">55.000đ</span>
-                                        </div>                            
-                                     </div>                                                            
-                            
-                                </div>
-                                <div class="grid__column-2-4">
-                                    <!-- product item -->
-                                     <div class="home-product-item">
-                                        <div class="home-product-item__img" style="background-image: url(https://bizweb.dktcdn.net/thumb/1024x1024/100/318/319/products/linh-kien-pic16f874-20-dip40-1.png?v=1740588216520);"></div>
-                                        <h5 class="home-product-item__name">Linh kiện PIC16F874-20 DIP40</h5>
-                                        <div class="home-product-item__price">
-                                            <span class="home-product-item__price-curent">55.000đ</span>
-                                        </div>                            
-                                     </div>                                                            
-                            
-                                </div>
-                                <div class="grid__column-2-4">
-                                    <!-- product item -->
-                                     <div class="home-product-item">
-                                        <div class="home-product-item__img" style="background-image: url(https://bizweb.dktcdn.net/thumb/1024x1024/100/318/319/products/linh-kien-pic16f874-20-dip40-1.png?v=1740588216520);"></div>
-                                        <h5 class="home-product-item__name">Linh kiện PIC16F874-20 DIP40</h5>
-                                        <div class="home-product-item__price">
-                                            <span class="home-product-item__price-curent">55.000đ</span>
-                                        </div>                            
-                                     </div>                                                            
-                            
-                                </div>
-                            
+                                     </div>                                                    
+                    
+                                </div> -->
+                                                      
                             </div>
                         </div>
                     </div>
@@ -190,11 +180,11 @@
         </div> 
     
     
-        <!-- <footer class="footer">
+         <footer class="footer">
             <div class="end-text">
             <p>2025 All rights Reserved by Tahmid Ahmed Hamim</p>
             </div>   
-        </footer> -->
+        </footer> 
         <script src="sripts.js" ></script>
     </div>
 </body>
