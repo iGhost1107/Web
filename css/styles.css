@@ -35,7 +35,6 @@ header {
     z-index: 1000;
     background: transparent;
     padding: 17px 11%;
-    border-bottom: 1px solid #f7f9fb;
     transition: all .45s ease;
 }
 
@@ -150,7 +149,390 @@ section {
 
 
 
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    animation: fadeIn linear 0.1s;
+    z-index: 2000;
+}
 
+.modal__overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1999;
+}
+.modal__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.modal__body{
+    --growth-form:0.7;
+    --growth-to:1;
+    background-color: var(--bg-color); 
+    margin: auto;
+    position: relative;
+    z-index: 2001;
+    border-radius: 5px;
+    animation: growth linear 0.1s;
+
+}
+
+
+/* authen modal */
+.auth-form {
+    width: 500px;
+}
+
+.auth-form__container {
+    padding: 0 32px;
+    width: 500px;
+
+}
+
+.auth-form__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.auth-form__heading { 
+    font-size: 2.2rem;
+    font-weight: 300;
+    color: var(--text-color);
+}
+
+.auth-form__switch-button {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: green;
+    cursor: pointer;
+}
+
+.auth-form__switch-button:hover{
+    color: var(--main-color);
+}
+
+#login-form,
+#register-form {
+    display: none;
+}
+
+
+.auth-form__input {
+    width: 100%;
+    height: 40px;
+    margin-top: 16px;
+    padding: 0 12px;
+    font-size: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 2px;
+}
+
+.auth-form__input:focus {
+    border-color: #888 ;
+}
+
+.auth-form__acceptance {
+    margin-top: 20px;
+
+}
+
+.acceptance {
+    font-size: 0.87rem;
+    line-height: 0.87rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.detail {
+    color: green;
+    text-decoration: none;
+}
+
+.auth-form__controls {
+    margin-top: 80px;
+    align-items: center;
+    display: flex;
+    justify-content: flex-end; /* Đưa các nút về bên phải */
+    margin-bottom: 10px;
+}
+
+.auth-form__socials {
+    margin-top: 20px;
+    display: flex;
+    background-color: #f5f5f5;
+    padding: 16 40;
+    justify-content: space-between;
+}
+
+.auth-form__socials-icon {
+    color: #131713;
+    font-size: 1.5rem;
+}
+
+
+.auth-form__socials--facebook {
+    background-color: #3A5A98;
+}
+.auth-form__socials--facebook.auth-form__socials-icon {
+    color: #2c312c;
+
+}
+
+.auth-form__help{
+    display: flex;
+    justify-content: end;
+    margin-top: 15px;
+}
+
+.auth-form__hepl-link{
+    font-size: 1rem;
+    color: var(--main-color);
+}
+
+.auth-form__hepl-separete{
+    display: block;
+    height: 1.5rem;
+    border-left: 1px solid var(--border-color);
+    margin: 0 5px;
+}
+
+.auth-form__hepl-forfot{
+    color: green;
+}
+.auth-form__hepl-forfot:hover{
+    color: var(--main-color);
+}
+
+
+/* Modal */
+.cart-modal {
+    display: none; /* Modal mặc định ẩn */
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center; /* Căn giữa modal */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    animation: fadeIn 0.3s ease-out; /* Hiệu ứng fadeIn */
+    z-index: 9999; /* Đảm bảo modal ở trên cùng */
+}
+
+.cart-modal__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1; /* Overlay ở dưới modal */
+}
+
+.cart-modal__footer {
+    display: flex;
+    justify-content: flex-end; /* đẩy nút về bên phải */
+    gap: 10px;                 /* giảm khoảng cách nếu muốn */
+    margin-top: 20px;
+    align-items: center;
+}
+.cart-modal__close-button{
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: green;
+}
+.cart-modal__body {
+    background-color: var(--bg-color);
+    padding: 20px;
+    border-radius: 5px;
+    position: relative;
+    z-index: 2; /* Đảm bảo nội dung modal ở trên overlay */
+    animation: growth 0.3s ease-out; /* Hiệu ứng growth */
+    width: 100%;
+    max-width: 700px; /* Đảm bảo modal không quá rộng */
+}
+
+/* Auth Form */
+.auth-form {
+    width: 100%;
+    max-width: 500px;
+}
+
+
+.auth-form__container {
+    padding: 0 32px;
+}
+
+.auth-form__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.auth-form__heading {
+    font-size: 2.2rem;
+    font-weight: 300;
+    color: var(--text-color);
+}
+
+.auth-form__switch-button {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: green;
+    cursor: pointer;
+}
+
+.auth-form__switch-button:hover {
+    color: var(--main-color);
+}
+
+.auth-form__input {
+    width: 100%;
+    height: 40px;
+    margin-top: 16px;
+    padding: 0 12px;
+    font-size: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 2px;
+    outline: black;
+}
+
+.auth-form__input:focus {
+    border-color: #888;
+}
+
+.auth-form__acceptance {
+    margin-top: 20px;
+}
+
+.acceptance {
+    font-size: 0.87rem;
+    line-height: 1.2;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.detail {
+    color: green;
+    text-decoration: none;
+}
+
+.auth-form__controls {
+    margin-top: 40px; /* Giảm khoảng cách giữa form và các nút */
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.btn.btn--primary {
+    color: #e3ffe6; 
+    background-color: green;
+    margin-left: 5px;
+}
+.btn.btn--primary:hover{
+    color:var(--text-color);
+    background-color: #999;
+}
+
+.auth-form__socials {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 40px;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+}
+
+.auth-form__socials-icon {
+    color: #131713;
+    font-size: 1.5rem;
+}
+
+/* Các nút xã hội */
+.auth-form__socials--facebook {
+    background-color: #3A5A98;
+    color: white;
+    border-radius: 4px;
+    padding: 10px;
+    text-align: center;
+}
+
+.auth-form__socials--facebook:hover {
+    background-color: #2c312c;
+}
+
+/* Button Back */
+.auth-form__socials--back {
+    padding: 10px 20px;
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.auth-form__socials--back:hover {
+    background-color: darkgreen;
+}
+
+/* Help Link */
+.auth-form__help {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+}
+
+.auth-form__help-link {
+    font-size: 1rem;
+    color: var(--main-color);
+}
+
+.auth-form__help-separate {
+    display: block;
+    height: 1.5rem;
+    border-left: 1px solid var(--border-color);
+    margin: 0 5px;
+}
+
+.auth-form__help-forgot {
+    color: green;
+}
+
+.auth-form__help-forgot:hover {
+    color: var(--main-color);
+}
+
+
+
+/* Hiệu ứng */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes growth {
+    0% {
+        transform: scale(0.7);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
 
 
 

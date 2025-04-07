@@ -1,167 +1,11 @@
-/*
-from base.css
-
-*/
-
-
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-    text-decoration: none;
-    list-style: none;
-}
-
-
-:root {
-    --bg-color: #ffffff;
-    --text-color: #0f172a;
-    --main-color: #6b7280;
-    --other-color: #334155;
-    --big-font: 4.3rem;
-    --h2-font: 2.2rem;
-    --p-font: 1rem;
-}
-
-body {
-    color: var(--text-color);
-    background: var(--bg-color);
-}
-
-
-header {
-    right: 0;
-    top: 0;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: fixed;
-    z-index: 1000;
-    background: transparent;
-    padding: 17px 11%;
-    border-bottom: 1px solid #f7f9fb;
-    transition: all .45s ease;
-}
-.logo img{
-    width: 100%;
-    height: auto;
-}
-
-
-section {
-    padding: 100px 11% 90px;
-}
-
-.btn {
-    min-width: 124px;
-    height: 34px;
-    text-decoration: none;
-    border: none;
-    border-radius: 2px;
-    font-size: 1rem;
-    padding: 0 12px;
-    outline: none;
-    cursor: pointer;
-    color: var(--text-color);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    line-height: 1.6rem;
-}
-
-.btn--primary {
-    background-color: #e3ffe6;
-}
-
-.select-input{
-    position: relative;
-    min-width: 170px;
-    height: 34px;
-    padding: 0 12px;
-    border-radius: 2px;
-    background-color: #eeeeee;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.select-input__lable{
-    font-size: 1.2rem;
-}
-.select-input__icon {
-    font-size: 1rem;
-    position: relative;
-    top: 1px;
-}
-
-.select-input:hover .select-input__list{
-    display: block;
-}
-
-.select-input__list{
-    position:absolute;
-    left: 0;
-    right: 0;
-    top: 30px;
-    border-radius: 2px;
-    background-color:#eeeeee ;
-    padding: 8px 16px;
-    list-style: none;
-    display: none;
-}
-
-.select-intput__link{
-    font-size: 1rem;
-    color: var(--text-color);
-    text-decoration: none;
-    display: block;
-    padding: 4px 0 ;
-}
-
-.select-intput__link:hover {
-    background-color: #e3ffe6;
-}
-
-footer {
-    width: 100%;
-    background: var(--bg-color);
-    padding: 10px 0;
-    text-align: center;
-    border-top: 1px solid #f7f9fb;
-    margin-top: auto; 
-}
-
-.end-text p{
-    text-align: center;
-    padding: 20px;
-    font-size: 14px;
-    color: var(--other-color);
-}
-
-
 
 /*
 from base.css
 
 */
-
-header {
-    right: 0;
-    top: 0;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: fixed;
-    z-index: 1000;
-    background-image: linear-gradient(0,#e3ffe6,#e3ffe6);
-    padding: 17px 11%;
-    border-bottom: 1px solid #f7f9fb;
-    transition: all .45s ease;
+header{
+    background-color: #e3ffe6 !important; 
 }
-
 .container {
     margin-top: 150px; 
     margin-left: 100px;
@@ -213,11 +57,11 @@ header {
 .category-list__active{
     color: #1edc17 !important;
 }
-.color-options {
+/* .color-options {
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
-}
+} */
 .color-options label {
     width: 20px;
     height: 20px;
@@ -241,6 +85,8 @@ header {
 .category__heading1,.category-list1,.color-options {
     margin-left: 20px;
 }
+
+
 
 .home-filter{
     display: flex;
@@ -308,7 +154,7 @@ header {
 
 
 .home-product-item{
-    margin-top: 15px;
+   
     background-color: #e3ffe6;
 
 }
@@ -743,89 +589,120 @@ header {
 
 /* Cột bên trái */
 .grid__column-2 {
-    width: 18%;
+    width: 17%;
     background-color: #e3ffe6;
-    height: 300px;
+    height: 360px;
 }
 
 /* Cột nội dung chính */
+/* Cột nội dung chính */
 .grid__column-10 {
     width: 80%;
-    display: flex;            /* ✅ dùng flex để chia tiếp bên trong */
+    display: flex;
     flex-wrap: wrap;
     gap: 12px;
-    padding: 0;               /* bỏ padding để không bị dư */
+    padding: 0;
     box-sizing: border-box;
+    display: block;
 }
 
 /* Các cột con bên trong grid__column-10 */
 .grid__column-2-4 {
-    flex: 1 1 calc(25% - 12px); /* 4 cột đều nhau, trừ gap */
-    background-color:white;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    padding-left: 12px;
-    padding-right: 12px;
-    gap: 10px;
-}
-
-
-/* Mặc định: Desktop */
-.grid__column-10 {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    width: 80%;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-.grid__column-2-4 {
-    flex: 1 1 calc(25% - 12px); /* 4 cột đều nhau */
+    flex: 1 1 calc((100% - 4 * 12px) / 5);
+    max-width: calc((100% - 4 * 12px) / 5);
+    background-color: #f5f5f5;
     box-sizing: border-box;
     padding: 12px;
-    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
 }
 
-/* Tablet lớn - nhỏ hơn 1024px */
+/* Responsive: ≤ 1024px: 4 sản phẩm */
+@media (max-width: 1024px) {
+    .grid__column-10 {
+        width: 100%;
+    }
+
+    .grid__column-2-4 {
+        flex: 1 1 calc((100% - 3 * 12px) / 4);
+        max-width: calc((100% - 3 * 12px) / 4);
+    }
+}
+
+/* Responsive: ≤ 768px: 3 sản phẩm */
+@media (max-width: 768px) {
+    .grid__column-2-4 {
+        flex: 1 1 calc((100% - 2 * 12px) / 3);
+        max-width: calc((100% - 2 * 12px) / 3);
+    }
+}
+
+/* Responsive: ≤ 560px: 2 sản phẩm */
+@media (max-width: 560px) {
+    .grid__column-2-4 {
+        flex: 1 1 calc((100% - 12px) / 2);
+        max-width: calc((100% - 12px) / 2);
+    }
+}
+
+/* Responsive: ≤ 400px: 1 sản phẩm */
+@media (max-width: 400px) {
+    .grid__column-2-4 {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+}
+
+/* Responsive mục lục */
 @media (max-width: 1024px) {
     .grid__column-2 {
-        width: 30%;
+        width: 80%;
+        margin: 0 auto;
+        height: 34%;
     }
 
-    .grid__column-10 {
+    .category {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        background-color: #e3ffe6;
         width: 100%;
+        box-sizing: border-box;
     }
 
-    .grid__column-2-4 {
-        flex: 1 1 calc(33.333% - 12px); /* 3 cột */
-    }
-}
-
-/* Tablet dọc & mobile lớn - nhỏ hơn 768px */
-@media (max-width: 768px) {
-    .grid__column-2 {
-        width: 50%;
+    .category__heading1 {
+        margin-bottom: 10px;
+        text-align: left;
     }
 
-    .grid__column-10 {
+    .category-list1,
+    .brand-list {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        list-style: none;
+        padding: 0;
+        margin: 0 0 10px 0;
         width: 100%;
+        box-sizing: border-box;
     }
 
-    .grid__column-2-4 {
-        flex: 1 1 calc(50% - 12px); /* 2 cột */
-    }
-}
-
-/* Mobile - nhỏ hơn 480px */
-@media (max-width: 480px) {
-    .grid__column-2,
-    .grid__column-10 {
-        width: 100%;
+    .category-list1 li,
+    .brand-list li {
+        margin: 0;
+        flex: 0 0 auto;
     }
 
-    .grid__column-2-4 {
-        flex: 1 1 100%; /* 1 cột chiếm toàn bộ */
+    .category-list__name {
+        padding: 5px 10px;
+        border-radius: 4px;
+        background-color: white;
+        border: 1px solid #ccc;
+        text-align: center;
+        white-space: nowrap;
     }
 }

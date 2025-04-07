@@ -135,6 +135,35 @@ productItems.forEach(item => {
 });
 })();
 
+document.addEventListener("DOMContentLoaded", async () => {
+    
+    const container = document.querySelector(".home-product .grid__row");
+
+    try {
+        const res = await fetch("/api/products");
+        const products = await res.json();
+
+        products.forEach(product => {
+            const col = document.createElement("div");
+            col.className = "grid__column-2-4";
+            col.setAttribute("data-category", product.category);
+            col.setAttribute("data-brand", product.brand);
+
+            col.innerHTML = `
+                <div class="home-product-item" onclick="showProductDetail('${product.name}', '${product.price.toLocaleString()}đ', '${product.description}', '${product.image_url}')">
+                    <div class="home-product-item__img" style="background-image: url('${product.image_url}')"></div>
+                    <h5 class="home-product-item__name">${product.name}</h5>
+                    <div class="home-product-item__price"><span>${product.price.toLocaleString()}đ</span></div>
+                </div>
+            `;
+
+            container.appendChild(col);
+        });
+    } catch (err) {
+        console.error("Không thể load sản phẩm:", err);
+    }
+});
+
 
 
 
