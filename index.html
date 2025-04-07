@@ -16,20 +16,25 @@
     
 </head>
 <body>
-    <header>
+    <header id="header-page">
         <a href="#" class="logo"><i class="ri-home-line"></i></a>
 
         <ul class="navbar">
             <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="listitems.html">Shop</a></li>
+            <li><a href="listitemsapi.html">Shop</a></li>
             <li><a href="#">About</a></li>
             <li><a href="blog.html">Blog</a></li>
             <!-- <li><a href="#">Contact</a></li> -->
         </ul>
         <div class="icons">
             <a href=""><i class="ri-search-line"></i></a>
-            <a href=""><i class="ri-user-line"></i></a>
-            <a href=""><i class="ri-shopping-cart-line"></i></a>
+            <div id="user-container" style="position: relative; display: inline-block; text-align: center;">
+                <a href="#" id="user-icon"><i class="ri-user-line"></i></a>
+                <div id="username-display" style="display: none; font-size: 12px; color: #333; margin-top: 2px;"></div>
+            </div>
+            <a href="#" id="cart-icon">
+                <i class="ri-shopping-cart-line"></i>
+              </a>
             <div class="bx bx-menu" id = "menu-icon"></div>
         </div>
         
@@ -267,6 +272,10 @@
         </div>
       </section>
 
+        <!-- Đây là nơi sẽ nạp modal giỏ hàng -->
+        <div id="auth-modal-container"></div>
+        <div id="cart-container"></div>
+
 
       <div class="end-text">
         <p>2025 All rights Reserved by Tahmid Ahmed Hamim</p>
@@ -275,6 +284,8 @@
       <script src="https://unpkg.com/scrollreveal"></script>
       
      <script src="../New/js/sripts.js" ></script>
+     <script src="../New/js/login.js" ></script>
+     <script src="../New/js/model.js" ></script>
 
 </body>
 </html>
