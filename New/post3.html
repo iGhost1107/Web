@@ -1,0 +1,116 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NewsFlash | Post</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon.png">
+    <!-- Remix icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- Swiper.js styles -->
+    <link rel="stylesheet" href="./css/swiper-bundle.min.css"/>
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="./css/blog_styles.css">
+</head>
+<body>
+    <header>
+        <a href="#" class="logo"><i class="ri-home-line"></i></a>
+
+        <ul class="navbar">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./listitems.html">Shop</a></li>
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./blog.html" class="active">Blog</a></li>
+        </ul>
+        <div class="icons">
+            <a href=""><i class="ri-search-line"></i></a>
+            <a href=""><i class="ri-user-line"></i></a>
+            <a href=""><i class="ri-shopping-cart-line"></i></a>
+            <div class="bx bx-menu" id = "menu-icon"></div>
+        </div>
+        
+    </header>
+
+    <section class="blog-post section-header-offset">
+        <div class="blog-post-container container">
+            <div class="blog-post-data">
+                <h3 class="title blog-post-title">Essential Elements to choose a right Processor</h3>
+                <div class="article-data">
+                    <span>23 March 2025  </span>
+                    <span class="article-data-spacer"></span>
+                    <span>4 Min read</span>
+                </div>
+                <img src="./images/featured/processor.jpg" alt="">
+            </div>
+
+            <div class="container">
+                <p> Recently I was working for an automotive client where I was supposed to choose a suitable microcontroller for my project. I started listing down the various microcontrollers available in the market, finally I made a big list and it became tough to finalize the best one. Most of the selected controllers were meeting my requirements, and it was really a tough task to choose the right one.</p>
+                <p>Then I started listing down the aspects that are essential to choose a Processor. Below are some of the prominent areas that I think are must for Processor Selection. </p>
+                <p>Processor Speed: Processing speed is the first parameter which decides how fast your product can perform. It is important to check the number of instruction a process can execute in a second (MIPS). If processor has multiple cores then number of instruction executed is always multiplied by number of cores.
+                    Hardware acceleration: It is not just about the processor core(s), for execution of well-specified functionality, a hardware accelerator is always the most power-efficient method. One area that can make the difference in using the accelerator is how friendly it is to use in a software algorithm. For full-algorithm-type accelerators, such as an H.264 encoder, there usually is not an issue because it’s substantially self-contained. However, for kernel-type accelerators like an FFT, it can be more challenging to use an accelerator within a larger algorithm. Take a look at how the hardware function performs and how it needs to be configured. Consider choosing microcontroller with integrated FPGA/DSP, if you think some the software logics can be put on hardware/DSP for more efficiency.<br />
+                    Debugging capabilities: As applications become more complex, so does the development process. Shortcuts that worked in the past might not work when the number of processor and application subcomponents has grown exponentially. Consider the system-level debug of a large software-based system that uses an operating system or real-time kernel. Do the processor and its tool chain have a way to examine the processor state without impacting the application? Is it possible to profile and trace where the processor has been, or to trap on all events of interest? All these questions, and many more, should be answered before becoming comfortable with the level of debugging available.<br />
+                    Cost: At times, system designers focus on the processor price tag instead of the overall system design cost. It is imperative to take into account not only the device cost itself, but also cost of the supporting circuitry required – level translators, interface chips, glue logic, and so on. Also, package options play a vital role: One processor’s package might allow a four-layer board design, while another’s may necessitate six- or eight-layer board because of routing challenges. Finally, don’t overlook the value of extra processing headroom that can allow for future expandability without causing an expensive processor change or board spin.<br />
+                    Other Parts of product: Processor selection should occur in tandem with a study of a system’s signal chain requirements. Does the processor vendor also sell peripherals that connect to the processor? It is often advantageous to buy multiple system components from the same vendor – for interoperability, customer support, and overall pricing benefits.<br />
+                    Peripherals for Product design: Using the general hardware block diagram, make a list of all the external interfaces that the microcontroller will need to support. There are two general types of interfaces that need to be listed. The first are communication interfaces. These are peripherals such as Ethernet, USB, I2C, SPI, UART, and so on. Make a special note if the application requires USB or some form of Ethernet. These interfaces greatly affect how much program space the microcontroller will need to support. The second type of interface is digital inputs and outputs, analog to digital inputs, PWM’s, etc. These two interface types will dictate the number of pins that will be required by the microcontroller.<br />
+                    Software architecture: The software architecture and requirements can greatly affect the selection of a microcontroller. How heavy or how light the processing requirements will determine whether you go with an 80 MHz DSP or an 8 MHz 8051. Just like with the hardware, make notes of any requirements that will be important. For example, do any of the algorithms require floating point mathematics? Are there any high frequency control loops or sensors? Estimate how long and how often each task will need to run. Get an order of magnitude feel for how much processing power will be needed. The amount of computing power required will be one of the biggest requirements for the architecture and frequency of the microcontroller.<br />
+                    Identify Memory Needs: Flash and RAM are two very critical components of any microcontrollers. Making sure that you don’t run out of program space or variable space is undoubtedly of highest priority. It is far easier to select a part with too much of these features than not enough. Getting to the end of a design and discovering that you need 110% or that features need to be cut just isn’t going to fly. After all, you can always start with more and then later move to a more constrained part within the same chip family. Using the software architecture and the communication peripherals included in the application, an engineer can estimate how much flash and RAM will be required for the application. Don’t forget to leave room for feature creep and the next versions!<br />
+                    Power: The ability to reduce power consumption to a level with temporary operating requirements is crucial to preserving battery life, as well as overall energy costs in mains-powered systems. Processors can offer a wide range of options for optimizing an application’s power profile. One such feature is dynamic power management – the ability to adjust core frequency and operating voltage to meet a certain performance level. Another is the availability of multiple power modes that turn off various unneeded resources, including memories and peripherals, during certain time intervals. System wakeup (through general-purpose I/O, a real-time clock, or another stimulus) is an integral part of this power mode control. Yet another degree of flexibility in power management is the presence of multiple voltage domains for core, I/O, and memories, allowing different system components to operate at lower voltages when practical.<br />
+                    Security: Security needs usually take the form of platform protection, IP security, or data security – or some combination of all three.Platform protection is needed to ensure that only authenticated code is run in the application. Program that tries to access protected information on the processor, or “hijack” the processor and gain control of the system is to be prevented.The ability to authenticate code is also critical to securing IP and data. IP security requires a way to either encrypt the code image brought into the processor for execution, or to store this IP internal to the processor through embedded flash or an internal ROM inaccessible through external mechanisms. Some form of data security is required to ensure that data enters and exits the system without being compromised.<br />
+                    Check part availability: With the list of potential parts in hand, now is a good time to start checking on how available the part is. Some of the things to keep in mind are what the lead times for the part? Are they kept in stock at multiple distributors or is there 6 – 12 week lead time? What are your requirements for availability? You don’t want to get stuck with a large order and have to wait three months to be able to fill it. Then there is a question of how new the part is and whether it will be around for the duration of your product life cycle. If your product will be around for 10 years then you need to find a part that the manufacturer guarantees will still be built in 10 years.<br />
+                    Select a development kit: One of the best parts of selecting a new microcontroller is finding a development kit to play with and learn the inner working of the controller. Once an engineer has settled their heart on the part they want to use they should research what development kits are available. If a development kit isn’t available then the selected part is most likely not a good choice and they should go back a few steps and find a better part. Most development kits today cost under $100. Paying any more than that (unless it is designed to work with multiple processor modules) is just too much. Another part may be a better choice.<br />
+                    Compilers and Tools: The selection of the development kit nearly solidifies the choice of microcontroller. The last consideration is to examine the compiler and tools that are available. Most microcontrollers have a number of choices for compilers, example code and debugging tools. It is important to make sure that all the necessary tools are available for the part. Without the right tools the development process could become tedious and expensive.<br />
+                    Support: Last but not the lease, the support for the microcontroller the manufacture is providing. If they provide support during hardware design, review the design, software support and example codes.<br />
+                      As described above are various facets to consider during the processor selection phase which should provide a good basis for embarking on this crucial process. Some of the top Vendors offer a wide range of processors and other components that meet the above described selection criteria.</p>
+                
+            </div>
+        </div>
+    </section>
+
+    <section class="contact">
+        <div class="main-contact">
+            <div class="contact-content">
+                <h5>Getting Started</h5>
+                <li><a href="#">Release Notes</a></li>
+                <li><a href="#">Upgrade Guide</a></li>
+                <li><a href="#">Browser Support</a></li>
+                <li><a href="#">Dark Mode</a></li>
+
+            </div>
+
+            <div class="contact-content">
+                <h5>Explore</h5>
+                <li><a href="#">Prototyping</a></li>
+                <li><a href="#">Design systems</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">Security</a></li>
+
+            </div>
+
+            <div class="contact-content">
+                <h5>Resources</h5>
+                <li><a href="#">Best practices</a></li>
+                <li><a href="#">Support</a></li>
+                <li><a href="#">Developers</a></li>
+                <li><a href="#">Learn design</a></li>
+
+            </div>
+
+            <div class="contact-content">
+                <h5>Community</h5>
+                <li><a href="#">Discustion Forums</a></li>
+                <li><a href="#">Code of conduct</a></li>
+                <li><a href="#">Contributing</a></li>
+                <li><a href="#">API reference</a></li>
+
+            </div>
+
+        </div>
+      </section>
+
+    <!-- Swiper.js -->
+    <script src="js\swiper-bundle.min.js"></script>
+    <!-- Custom script -->
+    <script src="../New/js/blog_scripts.js"></script>
+</body>
+</html>

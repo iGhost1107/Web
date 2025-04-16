@@ -1,0 +1,117 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NewsFlash | Post</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon.png">
+    <!-- Remix icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- Swiper.js styles -->
+    <link rel="stylesheet" href="./css/swiper-bundle.min.css"/>
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="./css/blog_styles.css">
+</head>
+<body>
+    <header>
+        <a href="#" class="logo"><i class="ri-home-line"></i></a>
+
+        <ul class="navbar">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./listitems.html">Shop</a></li>
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./blog.html" class="active">Blog</a></li>
+        </ul>
+        <div class="icons">
+            <a href=""><i class="ri-search-line"></i></a>
+            <a href=""><i class="ri-user-line"></i></a>
+            <a href=""><i class="ri-shopping-cart-line"></i></a>
+            <div class="bx bx-menu" id = "menu-icon"></div>
+        </div>
+        
+    </header>
+
+    <section class="blog-post section-header-offset">
+        <div class="blog-post-container container">
+            <div class="blog-post-data">
+                <h3 class="title blog-post-title">Quick Review and Getting Started with the FRDM-KL46Z</h3>
+                <div class="article-data">
+                    <span>24 March 2025  </span>
+                    <span class="article-data-spacer"></span>
+                    <span>4 Min read</span>
+                </div>
+                <img src="./images/featured/kl46z.jpg" alt="">
+            </div>
+
+            <div class="container">
+                <div class = "middle-text"><h2>Introduction</h2></div>
+                <p>
+                    There are several boards in the Freescale FRDM family, geared toward their Kinetis ARM processors. The nice thing is that they are extremely low cost and also integrate a few interesting Freescale sensors on each board. It really saves time if you are planning on evaluating one of the sensors but the board can be used as a general purpose microcontroller board. I think anyone considering an Arduino should also seriously consider a FRDM board and not just because they are designed with a similar footprint.
+                </p>
+                <p>The Kinetis range includes ARM M0+ cores in the Kinetis 'L' series (other series' use different ARM cores). The diagram here (from the reference manual) shows the range offered within the ‘L’ series. It’s interesting that the possibility exists for small 16-pin devices in the future (I don't think they are available currently).</p>
+                <img src="./images/featured/L series.jpg" alt="">
+                <p>The KL46Z board contains a 256Kbyte FLASH, 32Kbyte RAM processor</p>
+                <p>The ‘mixed signal’ aspect referred to in the diagram is very interesting; it’s not just a simple ADC or DAC. The microcontroller has an on-board 16-bit ADC with some unusual capabilities not normally seem in microcontrollers; for example it offers differential inputs (ideal if there is any common noise on top of wires connecting to the sensor) and better (higher SNR) for very small signals if the sensor supplies a differential output. Interestingly a hardware trigger capability is also available to acquire the samples at an externally defined point in time. Depending on configuration, it looks like it is possible to configure the ADC to operate at very high speeds (millions of samples per sec) – although I need to study the reference guide more to confirm this; it should really be on Freescale’s product page as a competitive advantage but it isn’t. There are some other analog features (including a DAC) inside the microcontroller that would be worth investigating.
+                </p>
+                <p>The built-in LCD controller is also great; LCD displays without controllers can be lower cost of course, and the microcontroller can drive the complex multi-level waveforms needed for multiplexed LCD displays. The display on the FRDM board is just a 4-digit model but it would be possible to drive much larger multi-character (e.g. 14-segment) LCD displays (to a total of 376 segments).</p>
+                <div class = "middle-text"><h2>Initially Using the Board</h2></div>
+                <p>The only thing needed is a USB cable (not supplied) to connect to the PC. As soon as that is done, the board appears as a USB drive and the PC starts to install additional drivers.</p>
+                <div class = "middle-text"><h2>On-Board Programmer</h2></div>
+                <p>This was not mentioned earlier because the behaviour is handily quite transparent to anyone who just wants to program and run code on the board. A good thing about all the FRDM boards is that they contain an on-board programmer (and debugger!) known as OpenSDA. It is possible to use this to program microcontrollers on other boards. Note that no cable is supplied for this and the connector is extremely tiny for a through-hole device (1.27mm pitch); a pre-built cable from other manufacturers is quite expensive so you may wish to just purchase the connector and solder some wires to it yourself. A track also needs to be cut (under holes marked J18 on the KL46Z, or J11 on the KL25Z) which can be populated with a jumper whenever it is required to revert to local programming behavior). The photo below shows the connector (Farnell part code 1022305) soldered onto a KL25Z board with a normal 0.1-inch header to the right of it for comparison. It really is a very tiny connector (in the center of the photo). The mating connector is this part and is shown on the left (I plan to just directly solder wires to it and protect with some epoxy, for a low cost adapter cable).</p>
+                <img src="./images/featured/connector.jpg" alt="">
+                <div class = "middle-text"><h2>Conclusions</h2></div>
+                <p>This is a superb board; the display and the fact that it is a very powerful CPU with some excellent ADC and DAC features means that I can see myself purchasing several of these for dedicated tasks; one example would be a data logger, where a built-in low-power display is very beneficial. The board has incredible value for money (list price is £9.94 ). Note that the microcontroller has many other on-chip peripherals not discussed here.</p>
+                <p>Without mbed, it would be nice to have some more hand-holding from Freescale to show users how to begin programming for it because users should not have to guess how to set up paths for installing the compiler and code, and srec should be enabled by default in the supplied project settings file. Thankfully these are easy things for Freescale to do.</p>
+                <p>Until then, the KL25Z is the best introduction to the series; if you’re purchasing these boards, you may want both or more; I have already decided to also experiment with a Kinetis ‘K’ series board too for higher performance scenarios.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact">
+        <div class="main-contact">
+            <div class="contact-content">
+                <h5>Getting Started</h5>
+                <li><a href="#">Release Notes</a></li>
+                <li><a href="#">Upgrade Guide</a></li>
+                <li><a href="#">Browser Support</a></li>
+                <li><a href="#">Dark Mode</a></li>
+
+            </div>
+
+            <div class="contact-content">
+                <h5>Explore</h5>
+                <li><a href="#">Prototyping</a></li>
+                <li><a href="#">Design systems</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">Security</a></li>
+
+            </div>
+
+            <div class="contact-content">
+                <h5>Resources</h5>
+                <li><a href="#">Best practices</a></li>
+                <li><a href="#">Support</a></li>
+                <li><a href="#">Developers</a></li>
+                <li><a href="#">Learn design</a></li>
+
+            </div>
+
+            <div class="contact-content">
+                <h5>Community</h5>
+                <li><a href="#">Discustion Forums</a></li>
+                <li><a href="#">Code of conduct</a></li>
+                <li><a href="#">Contributing</a></li>
+                <li><a href="#">API reference</a></li>
+
+            </div>
+
+        </div>
+      </section>
+
+    <!-- Swiper.js -->
+    <script src="js\swiper-bundle.min.js"></script>
+    <!-- Custom script -->
+    <script src="../New/js/blog_scripts.js"></script>
+</body>
+</html>

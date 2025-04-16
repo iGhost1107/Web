@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Practice Website</title>
+    <link rel="stylesheet" href="./css/blog_styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+    rel="stylesheet"/>
+    <link rel="stylesheet"
+    href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- Swiper.js styles -->
+    <link rel="stylesheet" href="./css/swiper-bundle.min.css"/>
+    
+</head>
+<body>
+    <header>
+        <a href="#" class="logo"><i class="ri-home-line"></i></a>
+
+        <ul class="navbar">
+            <li><a href="./index.html"  >Home</a></li>
+            <li><a href="./listitems.html">Shop</a></li>
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./blog.html" class="active">Blog</a></li>
+        </ul>
+        <div class="icons">
+            <a href=""><i class="ri-search-line"></i></a>
+            <a href=""><i class="ri-user-line"></i></a>
+            <a href=""><i class="ri-shopping-cart-line"></i></a>
+            <div class="bx bx-menu" id = "menu-icon"></div>
+        </div>
+        
+    </header>
+    <!-- Featured articles -->
+    <section class="featured-articles section section-header-offset">
+
+        <div class="featured-articles-container container d-grid">
+
+            <div class="featured-content d-grid">
+
+                <a href="./post1.html" class="article featured-article featured-article-1">
+                    <img src="./images/featured/featured-1.jpg" alt="" class="article-image">
+                    <span class="article-category">Technology</span>
+
+                    <div class="article-data-container">
+
+                        <div class="article-data">
+                            <span>10 June 2024</span>
+                            <span class="article-data-spacer"></span>
+                            <span>8 Min read</span>
+                        </div>
+
+                        <h3 class="title article-title">What is a microprocessor?</h3>
+
+                    </div>
+                </a>
+
+                <a href="./post2.html" class="article featured-article featured-article-2">
+                    <img src="./images/featured/kl46z.jpg" alt="" class="article-image">
+                    <span class="article-category">Technology</span>
+
+                    <div class="article-data-container">
+
+                        <div class="article-data">
+                            <span>24 March 2025</span>
+                            <span class="article-data-spacer"></span>
+                            <span>4 Min read</span>
+                        </div>
+
+                        <h3 class="title article-title">Quick Review and Getting Started with the FRDM-KL46Z</h3>
+
+                    </div>
+                </a>
+
+                <a href="./post3.html" class="article featured-article featured-article-3">
+                    <img src="./images/featured/processor.jpg" alt="" class="article-image">
+                    <span class="article-category">Technology</span>
+
+                    <div class="article-data-container">
+
+                        <div class="article-data">
+                            <span>23 March 2025</span>
+                            <span class="article-data-spacer"></span>
+                            <span>5 Min read</span>
+                        </div>
+
+                        <h3 class="title article-title">Essential Elements to choose a right Processor</h3>  
+
+                    </div>
+                </a>
+
+            </div>
+            
+            <div class="sidebar d-grid">
+
+                <h3 class="title featured-content-title">Trending news</h3>
+
+                <a href="./post1.html" class="trending-news-box">
+                    <div class="trending-news-img-box">
+                        <span class="trending-number place-items-center">01</span>
+                        <img src="./images/featured/featured-1.jpg" alt="" class="article-image">
+                    </div>
+
+                    <div class="trending-news-data">
+
+                        <div class="article-data">
+                            <span>10 June 2024</span>
+                            <span class="article-data-spacer"></span>
+                            <span>8 Min read</span>
+                        </div>
+
+                        <h3 class="title article-title">What is a microprocessor?</h3>
+
+                    </div>
+                </a>
+
+                <a href="./post2.html" class="trending-news-box">
+                    <div class="trending-news-img-box">
+                        <span class="trending-number place-items-center">02</span>
+                        <img src="./images/featured/kl46z.jpg" alt="" class="article-image">
+                    </div>
+
+                    <div class="trending-news-data">
+
+                        <div class="article-data">
+                            <span>24 March 2025</span>
+                            <span class="article-data-spacer"></span>
+                            <span>4 Min read</span>
+                        </div>
+
+                        <h3 class="title article-title">Quick Review FRDM-KL46Z</h3>
+
+                    </div>
+                </a>
+
+                <a href="./post3.html" class="trending-news-box">
+                    <div class="trending-news-img-box">
+                        <span class="trending-number place-items-center">03</span>
+                        <img src="./images/featured/processor.jpg" alt="" class="article-image">
+                    </div>
+
+                    <div class="trending-news-data">
+
+                        <div class="article-data">
+                            <span>23 March 2025</span>
+                            <span class="article-data-spacer"></span>
+                            <span>5 Min read</span>
+                        </div>
+
+                        <h3 class="title article-title">Choose a right Processor</h3>
+
+                    </div>
+                </a>
+
+                <a href="./post4.html" class="trending-news-box">
+                    <div class="trending-news-img-box">
+                        <span class="trending-number place-items-center">04</span>
+                        <img src="./images/featured/fpga.jpg" alt="" class="article-image">
+                    </div>
+
+                    <div class="trending-news-data">
+
+                        <div class="article-data">
+                            <span>17 March 2025</span>
+                            <span class="article-data-spacer"></span>
+                            <span>3 Min read</span>
+                        </div>
+
+                        <h3 class="title article-title">FPGA development board</h3>
+
+                    </div>
+                </a>
+
+                <a href="./post5.html" class="trending-news-box">
+                    <div class="trending-news-img-box">
+                        <span class="trending-number place-items-center">05</span>
+                        <img src="./images/featured/microcontroller.jpg" alt="" class="article-image">
+                    </div>
+
+                    <div class="trending-news-data">
+
+                        <div class="article-data">
+                            <span>17 March 2025</span>
+                            <span class="article-data-spacer"></span>
+                            <span>4 Min read</span>
+                        </div>
+
+                        <h3 class="title article-title">Microcontrollers</h3>
+
+                    </div>
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Quick read -->
+    <section class="quick-read section">
+
+        <div class="container">
+
+            <h2 class="title section-title" data-name="Quick read">Quick read</h2>
+            <!-- Slider main container -->
+            <div class="swiper">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <a href="./post3.html" class="article swiper-slide">
+                        <img src="./images/featured/processor.jpg" alt="" class="article-image">
+
+                        <div class="article-data-container">
+                            <div class="article-data">
+                                <span>23 March 2025</span>
+                                <span class="article-data-spacer"></span>
+                                <span>5 Min read</span>
+                            </div>
+                            <h3 class="title article-title">Essential Elements to choose a right Processor</h3>
+                        </div>
+                    </a>
+                    <!-- Slides -->
+                    <a href="./post2.html" class="article swiper-slide">
+                        <img src="./images/featured/kl46z.jpg" alt="" class="article-image">
+
+                        <div class="article-data-container">
+                            <div class="article-data">
+                                <span>24 March 2025</span>
+                                <span class="article-data-spacer"></span>
+                                <span>4 Min read</span>
+                            </div>
+                            <h3 class="title article-title">Quick Review and Getting Started with the FRDM-KL46Z</h3>
+                        </div>
+                    </a>
+                    <!-- Slides -->
+                    <a href="./post1.html" class="article swiper-slide">
+                        <img src="./images/featured/featured-1.jpg" alt="" class="article-image">
+
+                        <div class="article-data-container">
+                            <div class="article-data">
+                                <span>10 June 2024</span>
+                                <span class="article-data-spacer"></span>
+                                <span>8 Min read</span>
+                            </div>
+                            <h3 class="title article-title">What is a microprocessor?</h3>
+                        </div>
+                    </a>
+                    <!-- Slides -->
+                    <a href="./post4.html" class="article swiper-slide">
+                        <img src="./images/featured/fpga.jpg" alt="" class="article-image">
+
+                        <div class="article-data-container">
+                            <div class="article-data">
+                                <span>17 March 2025</span>
+                                <span class="article-data-spacer"></span>
+                                <span>4 Min read</span>
+                            </div>
+                            <h3 class="title article-title">Why I would choose an FPGA development board?</h3>
+                        </div>
+                    </a>
+                    <!-- Slides -->
+                    <a href="./post5.html" class="article swiper-slide">
+                        <img src="./images/featured/microcontroller.jpg" alt="" class="article-image">
+
+                        <div class="article-data-container">
+                            <div class="article-data">
+                                <span>17 Macrch 2025</span>
+                                <span class="article-data-spacer"></span>
+                                <span>4 Min read</span>
+                            </div>
+                            <h3 class="title article-title">Introduction to Microcontrollers</h3>
+                        </div>
+                    </a>
+                </div>
+                <!-- Navigation buttons -->
+                <div class="swiper-button-prev swiper-controls"></div>
+                <div class="swiper-button-next swiper-controls"></div>
+                <!-- Pagination -->
+                <div class="swiper-pagination"></div>
+            </div>
+
+        </div>
+
+    </section>
+    
+    <footer class="footer-container">
+        <div class="contact-social">
+            <div class="contact-info">
+                <p class="title">Contacts</p>
+                <div class="contact-item">
+                    <p>Phone:</p>
+                    <a href="tel:850-123-5021">850-123-5021</a>
+                </div>
+                <div class="contact-item">
+                    <p>Email:</p>
+                    <a href="mailto:info@lorem.mail">info@lorem.mail</a>
+                </div>
+                <div class="contact-item">
+                    <p>Address:</p>
+                    <a href="https://www.google.com/maps" target="_blank">312 Lovely Street, NY</a>
+                </div>
+            </div>
+
+            <div class="social">
+                <span class="title">Social</span>
+                <div class="social-icons">
+                    <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">
+                        <img src="images/home_images/youtube.png" alt="Youtube"> 
+                    </a>
+                    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+                        <img src="images/home_images/instagram.png" alt="Instagram">
+                    </a>
+                    <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
+                        <img src="images/home_images/facebook.png" alt="Facebook">
+                    </a>
+                </div>
+                <p>Empowering creators with quality microcontrollers and seamless shopping experience.</p>
+            </div>
+        </div>
+
+        <div class="bottom-section">
+            <p>© Copyright 2020 Lorem Inc. All rights reserved.</p>
+            <ul>
+                <li><a href="#">F.A.Q</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms & Conditions</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Swiper.js -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="./js/swiper-bundle.min.js"></script>
+    <script src="../New/js/blog_scripts.js" ></script>
+</body>
+</html>

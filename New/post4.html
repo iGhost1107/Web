@@ -1,0 +1,104 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NewsFlash | Post</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon.png">
+    <!-- Remix icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- Swiper.js styles -->
+    <link rel="stylesheet" href="./css/swiper-bundle.min.css"/>
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="./css/blog_styles.css">
+</head>
+<body>
+    <header>
+        <a href="#" class="logo"><i class="ri-home-line"></i></a>
+
+        <ul class="navbar">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./listitems.html">Shop</a></li>
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./blog.html" class="active">Blog</a></li>
+        </ul>
+        <div class="icons">
+            <a href=""><i class="ri-search-line"></i></a>
+            <a href=""><i class="ri-user-line"></i></a>
+            <a href=""><i class="ri-shopping-cart-line"></i></a>
+            <div class="bx bx-menu" id = "menu-icon"></div>
+        </div>
+        
+    </header>
+
+    <section class="blog-post section-header-offset">
+        <div class="blog-post-container container">
+            <div class="blog-post-data">
+                <h3 class="title blog-post-title">Why I would choose an FPGA development board?</h3>
+                <div class="article-data">
+                    <span>17 March 2025  </span>
+                    <span class="article-data-spacer"></span>
+                    <span>4 Min read</span>
+                </div>
+                <img src="./images/featured/fpga.jpg" alt="">
+            </div>
+
+            <div class="container">
+                <p>Some years ago, when I went to the University, I bought some development boards based on different microcontrollers, and I remember that, although development boards were not expensive, I had to add to the price of the board, the shipping costs and the taxes, which were more than the 50% of the price of the board, but there are no option if I wanted to test that microcontroller. When I wanted to test some other feature, I had to buy a different board, for example, if I wanted to design some audio algorithm and I needed a microcontroller with an I2S interface. Some years later, I began to use FPGA, and the first I did was to buy an FPGA development board. Now, 7 years later, I still using this board to develop new algorithm and implement different peripherals. In this article i want to tell you the advantages of buying an FPGA board instead of a microcontroller one.</p>
+                <p>The first one, FPGA are cool, and Intel and AMD know it. What made these huge companies interested in FPGA? FPGA has a great advantage over microcontrollers and microprocessors, the ability to do many things at the same time, as many as we need, we can receive data through PCIe interface, at the same time send through SPI the configuration for a DAC, and also blinking a led with a high precise timing. Neural networks, digital signal processing algorithms, cryptocurrency, or hardware accelerators, have something in common, they need the parallelization in order to be efficient, or even exist. These are complex tasks that obviously you won't do in your first month using FPGA, but you will start doing parallel algorithm in a few weeks.</p>
+                <p>Now, maybe you are thinking that there are microcontrollers or microprocessors with several cores. You are right but, do you know how to communicate through the IPC a TI dual core DSP?, and a TI ARM? and Microchip SAMD? if you are using a microcontroller development board, you will use that microcontroller, and you will learn to use that microcontroller, but maybe, that microcontroller is not used in the future company you will work, you will need to learn the registers and how to manage the middleware of other manufacturer, and this is the second advantage of an FPGA development board, if you know how to use one of them, then you will know how to use any of them. There are no proprietary register names, specific peripherals with different configurations... you can use any FPGA with the same code. It is true that there are some exceptions, for example if you are using specific hardware of an FPGA like the PLL, but you only need to know how instantiate the PLL on the new FPGA, and the rest of your code will be exactly the same, isn't it great? Ok, but you will have to learn a different programing language than the C you learn in the first course... yes, you will have to learn VHDL, or Verilog, which is based on C, so the entire code will be very familiar to you, so it is not a valid excuse, also there are pages like fpga4fun where you will find many code examples to implement your own peripherals so yo don't need to learn how to use them because you will design them.</p>
+                <p>At this point I hope that you are convinced to acquire an FPGA development board instead of a microcontroller development board, but you like microcontrollers, you like their advantages and their disadvantages are not a big deal for you, then, you can also have an FPGA and instantiate inside a microcontroller, or better, any microcontroller. There are many microcontrollers that can be instantiated into an FPGA, the ARM Cortex M1 for example was designed to be instantiated into an FPGA. In addition, if you have a design already running using the popular Cortex M3, recently ARM released it to be used inside an FPGA, and they are programmed using conventional methods. Not only ARM microcontrollers can be instantiated into an FPGA, you will be able to instantiate many other microcontrollers with RISC architecture like Microblaze or OpenRISC, and obviously, the coolest architecture, RISC-V, can be instantiated in an FPGA using projects like  SeRV, VexRiscv, Rocket, and all of these designs can be created using Litex, a framework to generate the FPGA design to use several RISC-V using just Python to configure the image that will be loaded into the FPGA.</p>
+                <p>Regarding the price, some years ago FPGA boards are very expensive because they are designed for expecific applications. Now we can find very affordable FPGA boards. On Aliexpress you can find the Sipeed Tang Nano 1k for 15 dollars, or her big sister, the Sipeed Tang Nano 9k for less than 20 dollars. If you need much more resources, you can buy the Arty S7 from Digilent for less than 100 dollars, or the SMF2000 for less than 50 dollars.</p>
+                <p>At this point, sure you want to buy an FPGA development board because all the advantages it has, but also, with an FPGA board you will learn how the hardware works, you will understand why a DDR memory is called DDR for example. I you are decided to buy an FPGA board, but you don't know which one to buy, contact me and I will help you.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact">
+        <div class="main-contact">
+            <div class="contact-content">
+                <h5>Getting Started</h5>
+                <li><a href="#">Release Notes</a></li>
+                <li><a href="#">Upgrade Guide</a></li>
+                <li><a href="#">Browser Support</a></li>
+                <li><a href="#">Dark Mode</a></li>
+
+            </div>
+
+            <div class="contact-content">
+                <h5>Explore</h5>
+                <li><a href="#">Prototyping</a></li>
+                <li><a href="#">Design systems</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">Security</a></li>
+
+            </div>
+
+            <div class="contact-content">
+                <h5>Resources</h5>
+                <li><a href="#">Best practices</a></li>
+                <li><a href="#">Support</a></li>
+                <li><a href="#">Developers</a></li>
+                <li><a href="#">Learn design</a></li>
+
+            </div>
+
+            <div class="contact-content">
+                <h5>Community</h5>
+                <li><a href="#">Discustion Forums</a></li>
+                <li><a href="#">Code of conduct</a></li>
+                <li><a href="#">Contributing</a></li>
+                <li><a href="#">API reference</a></li>
+
+            </div>
+
+        </div>
+      </section>
+
+    <!-- Swiper.js -->
+    <script src="js\swiper-bundle.min.js"></script>
+    <!-- Custom script -->
+    <script src="../New/js/blog_scripts.js"></script>
+</body>
+</html>
