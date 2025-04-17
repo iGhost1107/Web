@@ -13,149 +13,171 @@
                 console.error("Không thể tải login.html:", err);
             });
 
-        function setupAuthModal() {
-            const userIcon = document.getElementById("user-icon");
-            const modal = document.querySelector(".modal");
-            const loginForm = document.getElementById("login-form");
-            const registerForm = document.getElementById("register-form");
-            const switchButtons = document.querySelectorAll(".auth-form__switch-button");
-            const backButtons = document.querySelectorAll(".btn--normal");
-            const userInfoModal = document.querySelector(".modal--user-info");
-            const userEmailSpan = document.getElementById("user-email");
-            const logoutButton = document.getElementById("logout-btn");
-
-            if (!userIcon || !modal || !loginForm || !registerForm || !userInfoModal) return;
-
-            // Click icon user
-            userIcon.addEventListener("click", async (e) => {
-                e.preventDefault();
-                const token = localStorage.getItem("token");
-
-                if (token) {
+            function setupAuthModal() {
+                const userIcon = document.getElementById("user-icon");
+                const modal = document.querySelector(".modal");
+                const loginForm = document.getElementById("login-form");
+                const registerForm = document.getElementById("register-form");
+                const switchButtons = document.querySelectorAll(".auth-form__switch-button");
+                const backButtons = document.querySelectorAll(".btn--normal");
+                const userInfoModal = document.querySelector(".modal--user-info");
+                const userEmailSpan = document.getElementById("user-email");
+                const logoutButton = document.getElementById("logout-btn");
+    
+                const adminPanelBtn = document.getElementById("admin-panel-btn");
+    
+                userIcon?.addEventListener("click", async () => {
+                    const token = localStorage.getItem("token");
+                    if (!token) {
+                        modal.style.display = "flex";
+                        loginForm.style.display = "flex";
+                        registerForm.style.display = "none";
+                        return;
+                    }
+    
                     try {
                         const res = await fetch(`${API_URL}/me`, {
-                            headers: {
-                                Authorization: `Bearer ${token}`
-                            }
+                            headers: { Authorization: `Bearer ${token}` }
                         });
-
-                        if (!res.ok) throw new Error("Token không hợp lệ");
+                        // if (!res.ok) throw new Error("Token hết hạn");
+                        if (!res.ok) {
+                            const errorText = await res.text(); // lấy text để debug
+                            console.error("🚨 Server trả về lỗi:", res.status, errorText);
+                            throw new Error("Token hết hạn hoặc không hợp lệ");
+                        }
                         const user = await res.json();
-
+                        localStorage.setItem('user', JSON.stringify(user));
+                        
                         userEmailSpan.textContent = user.email;
                         document.getElementById("user-fullname").textContent = user.username || "(chưa có)";
                         document.getElementById("user-phone").textContent = user.phonenumber || "(chưa có)";
                         document.getElementById("user-address").textContent = user.address || "(chưa có)";
+    
+                        // 👉 kiểm tra role
+                        if (user.role === 'admin') {
+                            adminPanelBtn.style.display = "block";
+                            adminPanelBtn.addEventListener("click", () => {
+                                window.location.href = "C:/Users/nguye/Downloads/Web-main/Web-main/New/admin.html"; // trang quản lý sản phẩm
+                            });
+                        } else {
+                            adminPanelBtn.style.display = "none";
+                        }
+    
                         userInfoModal.style.display = "flex";
                     } catch (err) {
+                        // localStorage.removeItem("token");
+                        // alert("Phiên đăng nhập hết hạn. Vui lòng đăng nhập lại.");
+                        console.error("❌ Lỗi khi gọi /me:", err);
                         localStorage.removeItem("token");
-                        alert("Phiên đăng nhập hết hạn. Vui lòng đăng nhập lại.");
+                    
+                        if (err instanceof SyntaxError) {
+                            alert("Lỗi JSON từ server, không thể phân tích dữ liệu.");
+                        } else {
+                            alert("Phiên đăng nhập hết hạn hoặc lỗi server. Chi tiết trong console.");
+                        }
                     }
-                } else {
-                    modal.style.display = "flex";
-                    loginForm.style.display = "none";
-                    registerForm.style.display = "flex";
-                }
-            });
-
-            // Chuyển đổi giữa login/register
-            switchButtons.forEach(btn => {
-                btn.addEventListener("click", () => {
-                    const isLoginVisible = loginForm.style.display === "flex";
-                    loginForm.style.display = isLoginVisible ? "none" : "flex";
-                    registerForm.style.display = isLoginVisible ? "flex" : "none";
                 });
-            });
-
-            // Nút BACK để đóng modal
-            backButtons.forEach(btn => {
-                btn.addEventListener("click", () => {
-                    modal.style.display = "none";
-                    loginForm.style.display = "none";
-                    registerForm.style.display = "none";
-                    userInfoModal.style.display = "none";
+    
+                switchButtons.forEach(btn => {
+                    btn.addEventListener("click", () => {
+                        const isLoginVisible = loginForm.style.display === "flex";
+                        loginForm.style.display = isLoginVisible ? "none" : "flex";
+                        registerForm.style.display = isLoginVisible ? "flex" : "none";
+                    });
                 });
-            });
-
-            // Click ngoài overlay để đóng tất cả modal
-            window.addEventListener("click", (e) => {
-                if (e.target.classList.contains("modal__overlay")) {
-                    modal.style.display = "none";
-                    loginForm.style.display = "none";
-                    registerForm.style.display = "none";
-                    userInfoModal.style.display = "none";
-                }
-            });
-
-            // Đăng ký
-            registerForm.querySelector(".btn--primary").addEventListener("click", async (e) => {
-                e.preventDefault();
-                const email = registerForm.querySelector("input[name='email']").value.trim();
-                const password = registerForm.querySelector("input[name='password']").value.trim();
-                const confirm = registerForm.querySelector("input[name='confirm']").value.trim();
-
-                if (!email || !password || !confirm) return alert("Vui lòng nhập đầy đủ thông tin");
-                if (password !== confirm) return alert("Mật khẩu không khớp");
-
-                try {
-                    const res = await fetch(`${API_URL}/register`, {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({ email, password }),
-                    });
-
-                    const data = await res.json();
-
-                    if (res.ok) {
-                        alert("Đăng ký thành công! Mời bạn đăng nhập.");
-                        registerForm.style.display = "none";
-                        loginForm.style.display = "flex";
-                        registerForm.reset?.();
-                    } else {
-                        alert(data.message || "Đăng ký thất bại");
-                    }
-                } catch (err) {
-                    alert("Lỗi kết nối server");
-                }
-            });
-
-            // Đăng nhập
-            loginForm.querySelector(".btn--primary").addEventListener("click", async (e) => {
-                e.preventDefault();
-                const email = loginForm.querySelector("input[name='email']").value.trim();
-                const password = loginForm.querySelector("input[name='password']").value.trim();
-
-                if (!email || !password) return alert("Vui lòng nhập đầy đủ thông tin");
-
-                try {
-                    const res = await fetch(`${API_URL}/login`, {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({ email, password }),
-                    });
-
-                    const data = await res.json();
-
-                    if (res.ok) {
-                        alert("Đăng nhập thành công");
-                        localStorage.setItem("token", data.token);
+    
+                backButtons.forEach(btn => {
+                    btn.addEventListener("click", () => {
                         modal.style.display = "none";
-                        loginForm.reset?.();
-                        registerForm.reset?.();
-                    } else {
-                        alert(data.message || "Đăng nhập thất bại");
+                        loginForm.style.display = "none";
+                        registerForm.style.display = "none";
+                        userInfoModal.style.display = "none";
+                    });
+                });
+    
+                window.addEventListener("click", (e) => {
+                    if (e.target.classList.contains("modal__overlay")) {
+                        modal.style.display = "none";
+                        loginForm.style.display = "none";
+                        registerForm.style.display = "none";
+                        userInfoModal.style.display = "none";
                     }
-                } catch (err) {
-                    alert("Lỗi kết nối server");
-                }
-            });
+                });
+    
+                // Đăng ký
+                registerForm.querySelector(".btn--primary").addEventListener("click", async (e) => {
+                    e.preventDefault();
+                    const email = registerForm.querySelector("input[name='email']").value.trim();
+                    const password = registerForm.querySelector("input[name='password']").value.trim();
+                    const confirm = registerForm.querySelector("input[name='confirm']").value.trim();
+    
+                    if (!email || !password || !confirm) return alert("Vui lòng nhập đầy đủ thông tin");
+                    if (password !== confirm) return alert("Mật khẩu không khớp");
+    
+                    try {
+                        const res = await fetch(`${API_URL}/register`, {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({ email, password }),
+                        });
+    
+                        const data = await res.json();
+    
+                        if (res.ok) {
+                            alert("Đăng ký thành công! Mời bạn đăng nhập.");
+                            registerForm.style.display = "none";
+                            loginForm.style.display = "flex";
+                            registerForm.reset?.();
+                        } else {
+                            alert(data.message || "Đăng ký thất bại");
+                        }
+                    } catch (err) {
+                        alert("Lỗi kết nối server");
+                    }
+                });
+    
+                // Đăng nhập
+                loginForm.querySelector(".btn--primary").addEventListener("click", async (e) => {
+                    e.preventDefault();
+                    const email = loginForm.querySelector("input[name='email']").value.trim();
+                    const password = loginForm.querySelector("input[name='password']").value.trim();
+    
+                    if (!email || !password) return alert("Vui lòng nhập đầy đủ thông tin");
+    
+                    try {
+                        const res = await fetch(`${API_URL}/login`, {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({ email, password }),
+                        });
+    
+                        const data = await res.json();
+    
+                        if (res.ok) {
+                            localStorage.setItem("token", data.token);
+                            alert("Đăng nhập thành công");
+                            modal.style.display = "none";
+                            loginForm.reset?.();
+                            registerForm.reset?.();
+                              // ⏱️ Cho phép DOM cập nhật xong rồi mới reload
+                            setTimeout(() => {
+                                window.location.reload();
+                            }, 300); // 300ms delay
+                        } else {
+                            alert(data.message || "Đăng nhập thất bại");
+                        }
+                    } catch (err) {
+                        alert("Lỗi kết nối server");
+                    }
+                });
+    
+                logoutButton?.addEventListener("click", () => {
+                    localStorage.removeItem("token");
+                    userInfoModal.style.display = "none";
+                    alert("Đã đăng xuất");
+                });
 
-            // Đăng xuất
-            logoutButton?.addEventListener("click", () => {
-                localStorage.removeItem("token");
-                userInfoModal.style.display = "none";
-                alert("Đã đăng xuất");
-            });
+            
             
             // Đổi mật khẩu
 

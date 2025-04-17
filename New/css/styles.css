@@ -364,6 +364,154 @@ section {
 }
 
 /* Auth Form */
+/* Chỉ áp dụng cho form đổi mật khẩu */
+/* === Style riêng cho modal đổi mật khẩu === */
+.modal--change-password .auth-form__container {
+    padding: 32px 24px;
+    border-radius: 12px;
+    background-color: #fff;
+    max-width: 420px;
+    width: 100%;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.modal--change-password .auth-form__heading {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.modal--change-password .auth-form__input {
+    height: 44px;
+    font-size: 1rem;
+    border-radius: 6px;
+    padding: 10px 14px;
+    border: 1px solid #ccc;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border 0.3s ease;
+}
+
+.modal--change-password .auth-form__input:focus {
+    outline: none;
+}
+
+.modal--change-password .auth-form__group {
+    margin-bottom: 16px;
+}
+
+.modal--change-password .auth-form__controls {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.modal--change-password .btn {
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.modal--change-password .btn--normal {
+    background-color: #f0f0f0;
+    color: #333;
+    border: none;
+}
+
+.modal--change-password .btn--normal:hover {
+    background-color: #e0e0e0;
+}
+
+.modal--change-password .btn--primary {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+}
+
+.modal--change-password .btn--primary:hover {
+    background-color: #218838;
+}
+
+
+/* Chỉ áp dụng cho form thông tin người dùng */
+#user-info-box {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .info-row {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    font-size: 16px;
+    align-items: center;
+  }
+  
+  .label {
+    width: 150px; /* Cố định chiều rộng label để các dòng thẳng hàng */
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .value {
+    color: #666;
+    word-break: break-word;
+  }
+
+.modal--user-info .auth-form__input {
+    font-size: 1rem;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.modal--user-info .btn {
+    border-radius: 6px;
+    background-color: #28a745;
+    color: white;
+}
+
+.modal--user-info .btn:hover {
+    background-color: #218838;
+}
+
+
+.auth-form__heading {
+    font-size: 28px;
+    font-weight: bold;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+}
+
+#user-info-box span {
+    display: block;
+    font-size: 16px;
+    color: #555;
+    margin: 4px 0;
+}
+
+.auth-form__controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 24px;
+    margin-right: 20px;
+}
+
+/* Common button style */
+.btn {
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
 .auth-form {
     width: 100%;
     max-width: 500px;
@@ -435,16 +583,6 @@ section {
 }
 
 
-.btn.btn--primary {
-    color: #e3ffe6; 
-    background-color: green;
-    margin-left: 5px;
-}
-.btn.btn--primary:hover{
-    color:var(--text-color);
-    background-color: #999;
-}
-
 .auth-form__socials {
     margin-top: 20px;
     display: flex;
@@ -458,6 +596,7 @@ section {
     color: #131713;
     font-size: 1.5rem;
 }
+
 
 /* Các nút xã hội */
 .auth-form__socials--facebook {
@@ -1102,7 +1241,7 @@ footer here
   }
   
   .modal--change-password .btn--primary {
-    background-color: #007bff;
+    background-color: #28a745;
     color: white;
     border: none;
   }

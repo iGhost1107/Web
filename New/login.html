@@ -83,13 +83,26 @@
           <h3 class="auth-form__heading">Tài khoản</h3>
         </div>
         <div class="auth-form__form" id="user-info-box">
-          <span id="user-email"></span>
-          <span id="user-fullname"></span>
-          <span id="user-phone"></span>
-          <span id="user-address"></span>
+          <div class="info-row">
+            <span class="label">Email:</span>
+            <span class="value" id="user-email"></span>
+          </div>
+          <div class="info-row">
+            <span class="label">User name:</span>
+            <span class="value" id="user-fullname"></span>
+          </div>
+          <div class="info-row">
+            <span class="label">Phone number:</span>
+            <span class="value" id="user-phone"></span>
+          </div>
+          <div class="info-row">
+            <span class="label">Address:</span>
+            <span class="value" id="user-address"></span>
+          </div>
         </div>
         <div class="auth-form__controls">
           <button class="btn btn--normal" id="update-info-btn">Cập nhật</button>
+          <button id="admin-panel-btn" class="btn btn--primary" style="display: none;">Quản lý sản phẩm</button>
           <!-- <button class="btn btn--normal" id="order-history-btn">Lịch sử đơn hàng</button> -->
           <button class="btn btn--normal" id="change-password-btn">Đổi mật khẩu</button>
           <button class="btn btn--primary" id="logout-btn">Đăng xuất</button>

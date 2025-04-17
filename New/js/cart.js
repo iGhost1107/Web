@@ -456,6 +456,7 @@
 //     }
 //   }
 // });
+(function () {
 let items = [];
 
 const formatPrice = (price) => {
@@ -661,3 +662,5 @@ document.addEventListener('click', async event => {
     }, 3000);
   }
 });
+
+})();
