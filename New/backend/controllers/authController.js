@@ -56,7 +56,7 @@ exports.register = async (req, res) => {
 exports.getMe = async (req, res) => {
     try {
         const [rows] = await pool.query(
-            'SELECT id, email, username, phonenumber, address, cardnumber, cardmonth, cardyear, cardday FROM users WHERE id = ?',
+            'SELECT id, email, username, phonenumber, address, role, cardnumber, cardmonth, cardyear, cardday FROM users WHERE id = ?',
             [req.user.id]
         );
 
