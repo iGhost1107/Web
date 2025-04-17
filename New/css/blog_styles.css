@@ -28,7 +28,7 @@ header {
     justify-content: space-between;
     position: fixed;
     z-index: 1000;
-    background: transparent;
+    background: #e3ffe6;;
     padding: 17px 11%;
     border-bottom: 1px solid #f7f9fb;
     transition: all .45s ease;
@@ -47,8 +47,8 @@ header {
 
 
 .navbar a{
-    font-size: var(--p-font);
-    color: var(--other-color);
+    font-size: 1.53rem;
+    color: var(--otzer-color);
     font-weight: 400;
     padding: 10px 25px;
     margin: 0 5px;
@@ -251,8 +251,8 @@ html{
 body{
     font-family: var(--font-family);
     font-size: var(--font-size-sm);
-    color: var(--light-color-alt);
-    background-color: var(--primary-background-color);
+    color: #3d3d3d;
+    background-color: #fff;
     letter-spacing: 1px;
     transition: background-color .25s,color .25s;
 }
@@ -278,9 +278,7 @@ button {
   background-color: transparent;
 }
 
-i{
-    font-size: var(--font-size-md);
-}
+
 /* Reusable classes */
 .container{
     max-width: 160rem;
@@ -317,7 +315,8 @@ i{
 .featured-articles-container,
 .featured-content{
     gap: var(--gap);
-}.article{
+}
+.article{
     position: relative;
     min-height: var(--item-min-height-md);
 }
@@ -335,9 +334,9 @@ i{
     top: 1rem;
     right: 1rem;
     padding: 1rem;
-    background-color:var(--primary-background-color);
+    background-color:#fff;
     font-size: 1rem;
-    color: var(--light-color);
+    color: #3d3d3d;
     text-transform: uppercase;
     z-index: 10;
 }
@@ -348,15 +347,50 @@ i{
     left: 0;
     bottom: 0;
     padding: 2rem 1.5rem;
-    background-color: var(--transparent-dark-color);
+    background-color: #fff;
     z-index: 10;
     transition: background-color .5s;
 }
+.article:hover .article-data-container{
+    background-color: var(--hover-dark-color);
+    color: var(--hover-light-color);
+}
 
+.article:hover .article-data-spacer{
+    background-color: var(--hover-light-color);
+}
+
+.article:hover .article-title{
+    color: var(--hover-light-color);
+}
+
+
+.article-data{
+    display: flex;
+    align-items: center;
+    gap: var(--gap);
+    font-size: var(--font-size-xsm);
+    margin-bottom: 1rem;
+}
+
+.article-data-spacer{
+    width: .5rem;
+    height: .5rem;
+    background-color: var(--light-color-alt);
+    transform: rotate(45deg);
+}
+
+.title{
+    color: #3d3d3d;
+}
+
+.article-title{
+    font-size: var(--font-size-md);
+}
 
 /* Sidebar */
 .sidebar{
-    background-color: var(--secondary-background-color);
+    background-color: #f1f1f1;
     padding: 2.5rem;
 }
 
@@ -365,7 +399,7 @@ i{
     flex-direction: column;
     gap: var(--gap);
     padding-block: 2rem;
-    border-bottom: 1px solid var(--transparent-light-color);
+    border-bottom: 1px solid rgba(0,0,0,.1);
 }
 
 .trending-news-box:last-of-type{
@@ -391,7 +425,7 @@ i{
     z-index: 15;
     width: 3rem;
     height: 3rem;
-    background-color: var(--secondary-background-color);
+    background-color: #f1f1f1;
     color: var(--light-color);
     border-radius: 50%;
 }
@@ -401,7 +435,7 @@ i{
 }
 
 .trending-news-box:hover .article-title{
-    color: var(--light-color-alt);
+    color: rgba(0,0,0,.6);
 }
 
 /* Quick read */
@@ -432,12 +466,12 @@ i{
 .swiper-controls{
     width: 3.5rem;
     height: 3.5rem;
-    background-color: var(--secondary-background-color);
+    background-color: #f1f1f1;
 }
 
 .swiper-controls::after{
     font-size: 1.6rem;
-    color: var(--light-color);
+    color: #3d3d3d;
 }
 
 .swiper-pagination{
@@ -445,7 +479,7 @@ i{
 }
 
 .swiper-pagination-bullet{
-    background-color:var(--light-color);
+    background-color:#3d3d3d;
 }
 
 
@@ -576,58 +610,6 @@ i{
     gap: var(--gap);
 }
 
-.quote{
-    background-color: var(--secondary-background-color);
-    padding: 2.5rem;
-}
-
-.quote p{
-    font-style: italic;
-}
-
-.quote span{
-    font-size: 5rem;
-}
-
-.author{
-    margin-top: 5rem;
-    gap: var(--gap);
-}
-
-.author{
-    background-color: var(--secondary-background-color);
-}
-
-.author-image-box{
-    position: relative;
-    height: var(--item-min-height-sm);
-}
-
-.author-about{
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.author-name{
-    color: var(--light-color);
-    font-weight: 400;
-}
-
-.author-about p{
-    max-width: 50rem;
-    margin-bottom: 1rem;
-}
-
-.author-about .social-media{
-    margin-top: auto;
-    margin-bottom: 0;
-    display: flex;
-    gap: 1rem;
-}
-
-
 @media (max-width: 1700px) {
     header {
         padding: 12px 3%;
@@ -738,5 +720,220 @@ i{
     }
     .cta-text h3{
         font-size: 2.4rem;
+    }
+}
+
+/* Auth Form */
+.auth-form {
+    width: 100%;
+    max-width: 500px;
+}
+
+
+.auth-form__container {
+    padding: 0 32px;
+}
+
+.auth-form__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.auth-form__heading {
+    font-size: 2.2rem;
+    font-weight: 300;
+    color: var(--text-color);
+}
+
+.auth-form__switch-button {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: green;
+    cursor: pointer;
+}
+
+.auth-form__switch-button:hover {
+    color: var(--main-color);
+}
+
+.auth-form__input {
+    width: 100%;
+    height: 40px;
+    margin-top: 16px;
+    padding: 0 12px;
+    font-size: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 2px;
+    outline: black;
+}
+
+.auth-form__input:focus {
+    border-color: #888;
+}
+
+.auth-form__acceptance {
+    margin-top: 20px;
+}
+
+.acceptance {
+    font-size: 0.87rem;
+    line-height: 1.2;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.detail {
+    color: green;
+    text-decoration: none;
+}
+
+.auth-form__controls {
+    margin-top: 40px; /* Giảm khoảng cách giữa form và các nút */
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.btn.btn--primary {
+    color: #e3ffe6; 
+    background-color: green;
+    margin-left: 5px;
+}
+.btn.btn--primary:hover{
+    color:var(--text-color);
+    background-color: #999;
+}
+
+.auth-form__socials {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 40px;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+}
+
+.auth-form__socials-icon {
+    color: #131713;
+    font-size: 1.5rem;
+}
+
+/* Các nút xã hội */
+.auth-form__socials--facebook {
+    background-color: #3A5A98;
+    color: white;
+    border-radius: 4px;
+    padding: 10px;
+    text-align: center;
+}
+
+.auth-form__socials--facebook:hover {
+    background-color: #2c312c;
+}
+
+/* Button Back */
+.auth-form__socials--back {
+    padding: 10px 20px;
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.auth-form__socials--back:hover {
+    background-color: darkgreen;
+}
+
+/* Help Link */
+.auth-form__help {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+}
+
+.auth-form__help-link {
+    font-size: 1rem;
+    color: var(--main-color);
+}
+
+.auth-form__help-separate {
+    display: block;
+    height: 1.5rem;
+    border-left: 1px solid var(--border-color);
+    margin: 0 5px;
+}
+
+.auth-form__help-forgot {
+    color: green;
+}
+
+.auth-form__help-forgot:hover {
+    color: var(--main-color);
+}
+/* Modal */
+.cart-modal {
+    display: none; /* Modal mặc định ẩn */
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center; /* Căn giữa modal */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    animation: fadeIn 0.3s ease-out; /* Hiệu ứng fadeIn */
+    z-index: 9999; /* Đảm bảo modal ở trên cùng */
+}
+
+.cart-modal__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1; /* Overlay ở dưới modal */
+}
+
+.cart-modal__footer {
+    display: flex;
+    justify-content: flex-end; /* đẩy nút về bên phải */
+    gap: 10px;                 /* giảm khoảng cách nếu muốn */
+    margin-top: 20px;
+    align-items: center;
+}
+.cart-modal__close-button{
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: green;
+}
+.cart-modal__body {
+    background-color: var(--bg-color);
+    padding: 20px;
+    border-radius: 5px;
+    position: relative;
+    z-index: 2; /* Đảm bảo nội dung modal ở trên overlay */
+    animation: growth 0.3s ease-out; /* Hiệu ứng growth */
+    width: 100%;
+    max-width: 700px; /* Đảm bảo modal không quá rộng */
+}
+/* Hiệu ứng */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes growth {
+    0% {
+        transform: scale(0.7);
+    }
+    100% {
+        transform: scale(1);
     }
 }
