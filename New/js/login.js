@@ -25,7 +25,7 @@
                 const logoutButton = document.getElementById("logout-btn");
     
                 const adminPanelBtn = document.getElementById("admin-panel-btn");
-    
+
                 userIcon?.addEventListener("click", async () => {
                     const token = localStorage.getItem("token");
                     if (!token) {
@@ -177,6 +177,50 @@
                     alert("Đã đăng xuất");
                 });
 
+            
+                if (role !== "admin") {
+                  alert("Bạn không có quyền truy cập trang này!");
+                  window.location.href = "./index.html";
+                  return;
+                }
+            
+                const name = document.getElementById("name");
+                const price = document.getElementById("price");
+                const desc = document.getElementById("description");
+                const image = document.getElementById("image_url");
+                const category = document.getElementById("category");
+                const btn = document.getElementById("admin-panel-btn");
+                const list = document.getElementById("product-list");
+            
+                // Thêm sản phẩm
+                btn.addEventListener("click", async () => {
+
+                  const data = {
+                    name: name.value,
+                    price: Number(price.value),
+                    description: desc.value,
+                    image_url: image.value,
+                    category: category.value
+                  };
+            
+                  if (!data.name || !data.price || !data.image_url || !data.category) {
+                    alert("Vui lòng điền đầy đủ thông tin sản phẩm.");
+                    return;
+                  }
+            
+                  const res = await fetch(API, {
+                    method: "POST",
+                    headers: {
+                      "Content-Type": "application/json",
+                      Authorization: `Bearer ${token}`
+                    },
+                    body: JSON.stringify(data)
+                  });
+            
+                  const result = await res.json();
+                  alert(result.message);
+                  loadProducts();
+                });
             
             
             // Đổi mật khẩu

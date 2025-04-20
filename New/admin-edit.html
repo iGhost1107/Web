@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cập nhật sản phẩm</title>
+  <link rel="stylesheet" href="../New/css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Cập nhật sản phẩm</h2>
+    <form id="edit-product-form">
+      <div class="form-group">
+        <label for="name">Tên sản phẩm</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="description">Mô tả</label>
+        <textarea id="description" name="description" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="price">Giá</label>
+        <input type="number" id="price" name="price" min="0" required>
+      </div>
+      <div class="form-group">
+        <label for="image_url">Link hình ảnh</label>
+        <input type="text" id="image_url" name="image_url">
+      </div>
+      <button type="submit" class="btn btn--primary">Lưu thay đổi</button>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById("edit-product-form");
+    const params = new URLSearchParams(window.location.search);
+    const productId = params.get("id");
+
+    async function loadProduct() {
+      try {
+        const res = await fetch(`http://localhost:3000/api/products/${productId}`);
+        const product = await res.json();
+        document.getElementById("name").value = product.name;
+        document.getElementById("description").value = product.description;
+        document.getElementById("price").value = product.price;
+        document.getElementById("image_url").value = product.image_url || "";
+      } catch (err) {
+        alert("Không thể tải thông tin sản phẩm");
+      }
+    }
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const updated = {
+        name: form.name.value.trim(),
+        description: form.description.value.trim(),
+        price: Number(form.price.value),
+        image_url: form.image_url.value.trim()
+      };
+      try {
+        const res = await fetch(`http://localhost:3000/api/admin/${productId}`, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(updated)
+        });
+        const data = await res.json();
+        if (res.ok) {
+          alert("Cập nhật sản phẩm thành công!");
+          window.location.href = "listitems.html";
+        } else {
+          alert(data.message || "Cập nhật thất bại");
+        }
+      } catch (err) {
+        alert("Lỗi server khi cập nhật");
+      }
+    });
+
+    if (productId) loadProduct();
+  </script>
+</body>
+</html>

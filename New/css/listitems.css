@@ -706,3 +706,21 @@ header{
         white-space: nowrap;
     }
 }
+
+.edit-container {
+    position: fixed; /* Đảm bảo nó luôn ở vị trí cố định trên màn hình */
+    top: 0; /* Đưa nó lên sát phần trên của màn hình */
+    left: 0; /* Đưa nó ra sát cạnh trái của màn hình */
+    width: 100%; /* Chiếm toàn bộ chiều rộng của màn hình */
+    height: 100%; /* Chiếm toàn bộ chiều cao của màn hình */
+    background: rgba(0, 0, 0, 0.5); /* Nền mờ để nổi bật lên */
+    display: flex;
+    justify-content: center; /* Căn giữa nội dung trong edit-container */
+    align-items: center; /* Căn giữa nội dung theo chiều dọc */
+    z-index: 1999; /* Đảm bảo nó ở trên các phần tử khác */
+    overflow: auto; /* Cho phép cuộn khi nội dung quá dài */
+}
+
+.edit-container {
+    transition: all 0.3s ease-in-out; /* Thêm hiệu ứng mượt mà */
+}

@@ -80,7 +80,7 @@
     <div class="auth-form">
       <div class="auth-form__container">
         <div class="auth-form__header">
-          <h3 class="auth-form__heading">Tài khoản</h3>
+          <h3 class="auth-form__heading">Account</h3>
         </div>
         <div class="auth-form__form" id="user-info-box">
           <div class="info-row">
@@ -101,16 +101,50 @@
           </div>
         </div>
         <div class="auth-form__controls">
-          <button class="btn btn--normal" id="update-info-btn">Cập nhật</button>
-          <button id="admin-panel-btn" class="btn btn--primary" style="display: none;">Quản lý sản phẩm</button>
+          <button class="btn btn--normal" id="update-info-btn">Update</button>
+          <button id="admin-panel-btn" class="btn btn--primary" style="display: none;">Product Management</button>
           <!-- <button class="btn btn--normal" id="order-history-btn">Lịch sử đơn hàng</button> -->
-          <button class="btn btn--normal" id="change-password-btn">Đổi mật khẩu</button>
-          <button class="btn btn--primary" id="logout-btn">Đăng xuất</button>
+          <button class="btn btn--normal" id="change-password-btn">Change password</button>
+          <button class="btn btn--primary" id="logout-btn">Log out</button>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<div class="auth-form admin-panel" style="display: none;" id="admin-panel-container">
+  <div class="auth-form__container">
+    <div class="auth-form__header">
+      <h3 class="auth-form__heading">Product Management</h3>
+    </div>
+
+    <div class="auth-form__form" id="product-form">
+      <div class="auth-form__group">
+        <input type="text" class="auth-form__input" placeholder="Tên sản phẩm" id="name" />
+      </div>
+      <div class="auth-form__group">
+        <input type="number" class="auth-form__input" placeholder="Giá" id="price" />
+      </div>
+      <div class="auth-form__group">
+        <input type="text" class="auth-form__input" placeholder="Mô tả" id="description" />
+      </div>
+      <div class="auth-form__group">
+        <input type="text" class="auth-form__input" placeholder="Ảnh (URL)" id="image_url" />
+      </div>
+      <div class="auth-form__group">
+        <input type="text" class="auth-form__input" placeholder="Danh mục" id="category" />
+      </div>
+      <div class="auth-form__controls">
+        <button class="btn btn--primary" id="add-product">Add</button>
+        <button class="btn btn--normal" id="back-to-user-info">Back</button>
+      </div>
+    </div>
+
+    <div id="product-list" style="margin-top: 20px;"></div>
+  </div>
+</div>
+
+
 
 <!-- Đổi mật khẩu Form -->
 <div class="modal modal--change-password" style="display: none;">
@@ -119,7 +153,7 @@
     <div class="auth-form">
       <div class="auth-form__container">
         <div class="auth-form__header">
-          <h3 class="auth-form__heading">Đổi mật khẩu</h3>
+          <h3 class="auth-form__heading">Change password</h3>
         </div>
         <div class="auth-form__form" id="change-password-form">
           <div class="auth-form__group">
@@ -133,8 +167,8 @@
           </div>
         </div>
         <div class="auth-form__controls">
-          <button class="btn btn--normal" id="cancel-change-password">Hủy</button>
-          <button class="btn btn--primary" id="submit-change-password">Đổi mật khẩu</button>
+          <button class="btn btn--normal" id="cancel-change-password">Cancel</button>
+          <button class="btn btn--primary" id="submit-change-password">Change password</button>
         </div>
       </div>
     </div>
@@ -203,3 +237,5 @@
 
   </div>
 </div>
+
+<script src="./js/admin.js" ></script>

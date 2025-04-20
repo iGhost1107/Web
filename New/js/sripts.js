@@ -37,6 +37,35 @@ sr.reveal('.home-img', {delay: 300, origin: 'top'});
 sr.reveal('.feature, .product, cta.content, .contact', {delay: 200, origin: 'top'});
 
 
+// ======================================
+      // 6. Open Search Bar 
+      // ======================================
+
+      const searchIcon = document.getElementById("search-icon");
+      const searchWrapper = document.getElementById("search-wrapper");
+      const searchInput = document.getElementById("search-input");
+      const suggestions = document.getElementById("suggestions");
+      const searchOverlay = document.getElementById("search-overlay");
+  
+      searchIcon.addEventListener("click", (e) => {
+          e.preventDefault();
+          const isHidden = searchWrapper.style.display === "none" || searchWrapper.style.display === "";
+          searchWrapper.style.display = isHidden ? "block" : "none";
+          searchOverlay.style.display = isHidden ? "block" : "none";
+          suggestions.style.display = "none";
+  
+          if (isHidden) {
+              searchInput.focus();
+          }
+      });
+  
+      // Nếu người dùng click ra ngoài → ẩn luôn search
+      searchOverlay.addEventListener("click", () => {
+          searchWrapper.style.display = "none";
+          searchOverlay.style.display = "none";
+          suggestions.style.display = "none";
+      });
+
 // Swiper
 // const swiper = new Swiper(".swiper", {
 //     // How many slides to show

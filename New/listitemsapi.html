@@ -18,16 +18,17 @@
 
 <body>
     <div class="app">
-        <header class="header">
+        <header id="header-page">
             <a href="#" class="logo"><i class="ri-home-line"></i></a>
+    
             <ul class="navbar">
-                <li><a href="index.html" >Home</a></li>
-                <li><a href="listitems.html" class="active">Shop</a></li>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="listitemsapi.html">Shop</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="blog.html">Blog</a></li>
                 <!-- <li><a href="#">Contact</a></li> -->
             </ul>
-            <div class="icons">
+            <!-- <div class="icons">
                 <a href=""><i class="ri-search-line"></i></a>
                 <div id="user-container" style="position: relative; display: inline-block; text-align: center;">
                     <a href="#" id="user-icon"><i class="ri-user-line"></i></a>
@@ -37,29 +38,64 @@
                     <i class="ri-shopping-cart-line"></i>
                   </a>
                 <div class="bx bx-menu" id = "menu-icon"></div>
-            </div>
-        </header>
+            </div> -->
     
+            <div class="icons">
+                <div id="search-container" style="position: relative; display: inline-block;">
+                    <a href="listitemsapi.html" ><i class="ri-search-line" id="search-icon"></i></a>                
+                </div>
+                
+                
+                <div id="user-container" style="position: relative; display: inline-block; text-align: center;">
+                  <a href="#" id="user-icon"><i class="ri-user-line"></i></a>
+                  <div id="username-display" style="display: none; font-size: 12px; color: #333; margin-top: 2px;"></div>
+                </div>
+              
+                <a href="./cart.html" id="cart-icon">
+                  <i class="ri-shopping-cart-line"></i>
+                </a>
+              
+                <div class="bx bx-menu" id="menu-icon"></div>
+            </div>
+    
+            
+            
+        </header>
+        
+
+
+
+        <div id="search-wrapper" style="display: none;">
+                <input
+                  type="text"
+                  id="search-input"
+                  class="searchInput"
+                  placeholder="Search Product..."
+                />
+                <ul id="suggestions" class="search-suggestions"></ul>
+        </div>
+
+
         <!-- khung danh mục-->
         <div class = "container">
             <div class="grid">
                 <div class="grid__row app__content">
                     <div class="grid__column-2"> 
                         <nav class="category">
-                            <h4 class="category__heading1">Danh mục sản phẩm</h4>
+                            <h4 class="category__heading1">Category</h4>
                             <ul class="category-list1">
-                                <li><a href="#" class="category-list__name category-list__active" data-category="all">Tất cả sản phẩm</a></li>
-                                <li><a href="#" class="category-list__name" data-category="plc">Vi điều khiển PLC</a></li>
+                                <li><a href="#" class="category-list__name category-list__active" data-category="all">All products</a></li>
+                                <li><a href="#" class="category-list__name" data-category="plc">MCU PLC</a></li>
                                 <li><a href="#" class="category-list__name" data-category="avr">AVR</a></li>
                                 <li><a href="#" class="category-list__name" data-category="arduino">Arduino</a></li>
                                 <li><a href="#" class="category-list__name" data-category="raspberry">Raspberry</a></li>
                             </ul>
                     
-                            <h4 class="category__heading1">Chọn mức giá</h4>
+                            <h4 class="category__heading1">Prices</h4>
                             <ul class="price-list category-list1">
-                                <li><input type="checkbox" name="price" value="under-200"> Dưới 200.000đ</li>
-                                <li><input type="checkbox" name="price" value="200-500"> Từ 200.000 đến 500.000</li>
-                                <li><input type="checkbox" name="price" value="500-1000"> Từ 500.000 đến 1.000.000</li>
+                                <li><input type="checkbox" name="price" value="under-200"> Below 200.000đ</li>
+                                <li><input type="checkbox" name="price" value="200-500">  200.000 to 500.000</li>
+                                <li><input type="checkbox" name="price" value="500-1000">  500.000 to 1.000.000</li>
                             </ul>
 
                         </nav>   
@@ -84,20 +120,49 @@
                     <div>
                         <h2 id="detail-name"></h2>
                         <p id="detail-price"></p>
-                        <p id="detail-description">Mô tả sản phẩm sẽ hiển thị ở đây.</p>
+                        <p id="detail-description">Description here</p>
                     </div>
                     
-                    <div class="product-action">
+                    <div id="user-actions">
                         <div class="quantity-selector">
                             <button id="decrease-qty">−</button>
                             <input type="number" id="product-quantity" value="1" min="1">
                             <button id="increase-qty">+</button>
                         </div>
-                        <button id="add-to-cart" class="btn btn--primary">Thêm vào giỏ hàng</button>
+                        <button id="add-to-cart" class="btn btn--primary">Add to cart</button>
+                    </div>
+
+                    <div id="admin-actions" style="display: none;">
+                        <button id="edit-product" class="btn btn--primary">✏️ Update</button>
+                        <button id="delete-product" class="btn btn--danger">🗑️ Delete</button>
                     </div>
                 </div>
             </div>
         </div>
+
+        <div class="edit-container" id="edit-container" style="display: none;">
+            <h2>Update Product</h2>
+            <form id="edit-product-form">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required />
+              </div>
+              <div class="form-group">
+                <label for="description">Description</label>
+                <textarea id="description" name="description" required></textarea>
+              </div>
+              <div class="form-group">
+                <label for="price">Prices</label>
+                <input type="number" id="price" name="price" min="0" required />
+              </div>
+              <div class="form-group">
+                <label for="image_url">Image Link</label>
+                <input type="text" id="image_url" name="image_url" />
+              </div>
+              <button type="submit" class="btn btn--primary">Save</button>
+            </form>
+          </div>
+
           <!-- Đây là nơi sẽ nạp modal giỏ hàng -->
                 <div id="auth-modal-container"></div>
           <div id="cart-container"></div>
@@ -146,11 +211,12 @@
             </div>
         </footer>
 
+        <div id="search-overlay"></div>
         <script src="https://unpkg.com/scrollreveal"></script>   
         <script src="../New/js/login.js" ></script>
-        <script src="../New/js/model.js" ></script>
         <script src="./js/listitemsapi.js" ></script>
         <script src="./js/sripts.js" ></script>
+        
         
     </div>
 </body>
