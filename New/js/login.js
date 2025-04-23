@@ -24,7 +24,8 @@
                 const userEmailSpan = document.getElementById("user-email");
                 const logoutButton = document.getElementById("logout-btn");
     
-                const adminPanelBtn = document.getElementById("admin-panel-btn");
+                const addProductBtn = document.getElementById("admin-panel-btn");
+                const addProductForm = document.getElementById("admin-panel-container");
 
                 userIcon?.addEventListener("click", async () => {
                     const token = localStorage.getItem("token");
@@ -55,12 +56,9 @@
     
                         // 👉 kiểm tra role
                         if (user.role === 'admin') {
-                            adminPanelBtn.style.display = "block";
-                            adminPanelBtn.addEventListener("click", () => {
-                                window.location.href = "C:/Users/nguye/Downloads/Web-main/Web-main/New/admin.html"; // trang quản lý sản phẩm
-                            });
+                            addProductBtn.style.display = "block";
                         } else {
-                            adminPanelBtn.style.display = "none";
+                            addProductBtn.style.display = "none";
                         }
     
                         userInfoModal.style.display = "flex";
@@ -73,7 +71,7 @@
                         if (err instanceof SyntaxError) {
                             alert("Lỗi JSON từ server, không thể phân tích dữ liệu.");
                         } else {
-                            alert("Phiên đăng nhập hết hạn hoặc lỗi server. Chi tiết trong console.");
+                            alert("Phiên đăng nhập hết hạn hoặc lỗi server.");
                         }
                     }
                 });
@@ -175,54 +173,7 @@
                     localStorage.removeItem("token");
                     userInfoModal.style.display = "none";
                     alert("Đã đăng xuất");
-                });
-
-            
-                if (role !== "admin") {
-                  alert("Bạn không có quyền truy cập trang này!");
-                  window.location.href = "./index.html";
-                  return;
-                }
-            
-                const name = document.getElementById("name");
-                const price = document.getElementById("price");
-                const desc = document.getElementById("description");
-                const image = document.getElementById("image_url");
-                const category = document.getElementById("category");
-                const btn = document.getElementById("admin-panel-btn");
-                const list = document.getElementById("product-list");
-            
-                // Thêm sản phẩm
-                btn.addEventListener("click", async () => {
-
-                  const data = {
-                    name: name.value,
-                    price: Number(price.value),
-                    description: desc.value,
-                    image_url: image.value,
-                    category: category.value
-                  };
-            
-                  if (!data.name || !data.price || !data.image_url || !data.category) {
-                    alert("Vui lòng điền đầy đủ thông tin sản phẩm.");
-                    return;
-                  }
-            
-                  const res = await fetch(API, {
-                    method: "POST",
-                    headers: {
-                      "Content-Type": "application/json",
-                      Authorization: `Bearer ${token}`
-                    },
-                    body: JSON.stringify(data)
-                  });
-            
-                  const result = await res.json();
-                  alert(result.message);
-                  loadProducts();
-                });
-            
-            
+                });            
             // Đổi mật khẩu
 
             // Hiển thị form đổi mật khẩu
@@ -280,6 +231,49 @@
             alert("Lỗi kết nối server");
             }
         });
+
+          // Thêm sản phẩm
+          addProductBtn?.addEventListener("click", () => {
+            addProductForm.style.display = "flex";
+            document.querySelector("account-info-wrapper").style.display = "none";
+        });
+        
+        document.getElementById("add-product")?.addEventListener("click", async () => {
+            const name = document.getElementById("name").value.trim();
+            const price = Number(document.getElementById("price").value.trim());
+            const description = document.getElementById("description").value.trim();
+            const image_url = document.getElementById("image_url").value.trim();
+            const category = document.getElementById("category").value.trim();
+            const token = localStorage.getItem("token");
+        
+            if (!name || !price || !image_url || !category) {
+                alert("Vui lòng điền đầy đủ thông tin sản phẩm.");
+                return;
+            }
+        
+            try {
+                const res = await fetch("http://localhost:3000/api/admin", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${token}`
+                    },
+                    body: JSON.stringify({ name, price, description, image_url, category })
+                });
+        
+                const result = await res.json();
+                alert(result.message || "Thêm sản phẩm thành công!");
+                // loadProducts(); // nếu có
+            } catch (err) {
+                console.error("❌ Lỗi khi thêm sản phẩm:", err);
+                alert("Không thể thêm sản phẩm.");
+            }
+        });
+
+        document.getElementById("back-to-user-info")?.addEventListener("click", () => {
+            document.getElementById("admin-panel-container").style.display = "none";
+          });
+          
 
         // 🎯 Cập nhật thông tin người dùng
         const updateInfoModal = document.querySelector(".modal--update-info");
@@ -372,6 +366,20 @@
             console.error("🔴 Lỗi trong khối try:", err);
             alert(err.message || "Lỗi kết nối server");
         }
+        
+        if (role !== "admin") {
+            alert("Bạn không có quyền truy cập trang này!");
+            window.location.href = "./index.html";
+            return;
+          }
+      
+          const name = document.getElementById("name");
+          const price = document.getElementById("price");
+          const desc = document.getElementById("description");
+          const image = document.getElementById("image_url");
+          const category = document.getElementById("category");
+          const list = document.getElementById("product-list");
+      
         
 
         /* ERROR HERE */ 

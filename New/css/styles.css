@@ -1398,5 +1398,29 @@ footer here
     padding: 2px;
   }
 
-
+/* Khung tổng thể của form */
   
+.form-wrapper.admin-interface {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 3000;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgba(0, 0, 0, 0.4); /* nền mờ phía sau */
+}
+
+/* Container bên trong form */
+.form-wrapper__box {
+  background-color: white;
+  padding: 30px 40px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}

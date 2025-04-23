@@ -74,7 +74,7 @@
 <div id="auth-modal-container"></div>
 
 <!-- Thông tin người dùng sau khi đăng nhập -->
-<div class="modal modal--user-info" style="display: none;">
+<div class="modal modal--user-info" id = "account-info-wrapper" style="display: none;">
   <div class="modal__overlay"></div>
   <div class="modal__body">
     <div class="auth-form">
@@ -102,7 +102,7 @@
         </div>
         <div class="auth-form__controls">
           <button class="btn btn--normal" id="update-info-btn">Update</button>
-          <button id="admin-panel-btn" class="btn btn--primary" style="display: none;">Product Management</button>
+          <button id="admin-panel-btn" class="btn btn--primary" style="display: none;">Add a Product</button>
           <!-- <button class="btn btn--normal" id="order-history-btn">Lịch sử đơn hàng</button> -->
           <button class="btn btn--normal" id="change-password-btn">Change password</button>
           <button class="btn btn--primary" id="logout-btn">Log out</button>
@@ -111,30 +111,31 @@
     </div>
   </div>
 </div>
-
-<div class="auth-form admin-panel" style="display: none;" id="admin-panel-container">
-  <div class="auth-form__container">
-    <div class="auth-form__header">
-      <h3 class="auth-form__heading">Product Management</h3>
+ 
+<!-- Form add a product -->
+<div class="form-wrapper admin-interface" style="display: none;" id="admin-panel-container">
+  <div class="form-wrapper__box">
+    <div class="form-wrapper__header">
+      <h3 class="form-wrapper__title">Add a Product</h3>
     </div>
 
-    <div class="auth-form__form" id="product-form">
-      <div class="auth-form__group">
-        <input type="text" class="auth-form__input" placeholder="Tên sản phẩm" id="name" />
+    <div class="form-wrapper__body" id="product-form">
+      <div class="form-wrapper__field">
+        <input type="text" class="form-wrapper__input" placeholder="Tên sản phẩm" id="name" />
       </div>
-      <div class="auth-form__group">
-        <input type="number" class="auth-form__input" placeholder="Giá" id="price" />
+      <div class="form-wrapper__field">
+        <input type="number" class="form-wrapper__input" placeholder="Giá" id="price" />
       </div>
-      <div class="auth-form__group">
-        <input type="text" class="auth-form__input" placeholder="Mô tả" id="description" />
+      <div class="form-wrapper__field">
+        <input type="text" class="form-wrapper__input" placeholder="Mô tả" id="description" />
       </div>
-      <div class="auth-form__group">
-        <input type="text" class="auth-form__input" placeholder="Ảnh (URL)" id="image_url" />
+      <div class="form-wrapper__field">
+        <input type="text" class="form-wrapper__input" placeholder="Ảnh (URL)" id="image_url" />
       </div>
-      <div class="auth-form__group">
-        <input type="text" class="auth-form__input" placeholder="Danh mục" id="category" />
+      <div class="form-wrapper__field">
+        <input type="text" class="form-wrapper__input" placeholder="Danh mục" id="category" />
       </div>
-      <div class="auth-form__controls">
+      <div class="form-wrapper__actions">
         <button class="btn btn--primary" id="add-product">Add</button>
         <button class="btn btn--normal" id="back-to-user-info">Back</button>
       </div>
@@ -143,6 +144,7 @@
     <div id="product-list" style="margin-top: 20px;"></div>
   </div>
 </div>
+
 
 
 
