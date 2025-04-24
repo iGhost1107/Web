@@ -236,12 +236,12 @@ section {
 
 /* authen modal */
 .auth-form {
-    width: 500px;
+    width: 600px;
 }
 
 .auth-form__container {
     padding: 0 32px;
-    width: 500px;
+    width: 600px;
 
 }
 
@@ -292,7 +292,14 @@ section {
     margin-top: 20px;
 
 }
-
+.auth-form__controls .btn {
+    flex: 1 1 45%;
+    max-width: 300px;
+    width: 300px;
+    text-align: center;
+    padding: 12px 20px;
+}
+  
 .acceptance {
     font-size: 0.87rem;
     line-height: 0.87rem;
@@ -416,7 +423,7 @@ section {
     padding: 32px 24px;
     border-radius: 12px;
     background-color: #fff;
-    max-width: 420px;
+    max-width: 600px;
     width: 100%;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
@@ -544,7 +551,6 @@ section {
     justify-content: center;
     gap: 12px;
     margin-top: 24px;
-    margin-right: 20px;
 }
 
 /* Common button style */
@@ -558,15 +564,6 @@ section {
     transition: 0.3s ease;
 }
 
-.auth-form {
-    width: 100%;
-    max-width: 500px;
-}
-
-
-.auth-form__container {
-    padding: 0 32px;
-}
 
 .auth-form__header {
     display: flex;
@@ -1236,10 +1233,9 @@ footer here
   .modal--change-password .modal__body {
     position: relative;
     background-color: #fff;
-    width: 400px;
-    max-width: 90%;
+    width: 600px;
+    max-width: 100%;
     border-radius: 10px;
-    padding: 20px;
     animation: fadeIn 0.3s ease;
   }
   
@@ -1314,7 +1310,7 @@ footer here
 
  /* Payment */
  .payment {
-    width: 500px;
+    width: 600px;
     height: 500px;
     background-color: white;
     /* position: absolute;
@@ -1415,12 +1411,64 @@ footer here
   background-color: rgba(0, 0, 0, 0.4); /* nền mờ phía sau */
 }
 
-/* Container bên trong form */
-.form-wrapper__box {
-  background-color: white;
-  padding: 30px 40px;
-  border-radius: 12px;
-  width: 90%;
-  max-width: 500px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
+  
+  /* Kích thước chuẩn cho form thêm sản phẩm */
+  /* .form-wrapper__box {
+    width: 100%;
+    max-width: 600px;
+    padding: 30px 40px;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+  } */
+
+  .form-wrapper__box {
+    width: 100%;
+    max-width: 600px;
+    padding: 30px 40px;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+  }
+  
+  .form-wrapper__field input {
+    width: 100%;
+    padding: 10px 12px;
+    margin: 10px 0;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+  }
+  
+  .form-wrapper__actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .form-wrapper__actions .btn {
+    width: 48%;
+    font-size: 16px;
+    padding: 10px 0;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+  }
+  
+  /* Optional: màu cho nút */
+  .form-wrapper__actions .btn--primary {
+    background-color: #28a745;
+    color: white;
+    border: none;
+  }
+  
+  .form-wrapper__actions .btn--normal {
+    background-color: #f1f1f1;
+    color: #333;
+    border: none;
+  }
+  
+  

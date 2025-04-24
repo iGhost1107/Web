@@ -24,8 +24,6 @@
                 const userEmailSpan = document.getElementById("user-email");
                 const logoutButton = document.getElementById("logout-btn");
     
-                const addProductBtn = document.getElementById("admin-panel-btn");
-                const addProductForm = document.getElementById("admin-panel-container");
 
                 userIcon?.addEventListener("click", async () => {
                     const token = localStorage.getItem("token");
@@ -232,18 +230,22 @@
             }
         });
 
+        // hien thi form them san pham
+        const addProductBtn = document.getElementById("admin-panel-btn");
+        const addProductForm = document.querySelector("#admin-panel-container");
           // Thêm sản phẩm
           addProductBtn?.addEventListener("click", () => {
+              // Ẩn form thông tin tài khoản
+            document.querySelector(".modal--user-info").style.display = "none";
             addProductForm.style.display = "flex";
-            document.querySelector("account-info-wrapper").style.display = "none";
         });
         
         document.getElementById("add-product")?.addEventListener("click", async () => {
-            const name = document.getElementById("name").value.trim();
-            const price = Number(document.getElementById("price").value.trim());
-            const description = document.getElementById("description").value.trim();
-            const image_url = document.getElementById("image_url").value.trim();
-            const category = document.getElementById("category").value.trim();
+            const name = document.getElementById("add-name").value.trim();
+            const price = Number(document.getElementById("add-price").value.trim());
+            const description = document.getElementById("add-description").value.trim();
+            const image_url = document.getElementById("add-image_url").value.trim();
+            const category = document.getElementById("add-category").value.trim();
             const token = localStorage.getItem("token");
         
             if (!name || !price || !image_url || !category) {
