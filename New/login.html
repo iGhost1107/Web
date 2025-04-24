@@ -113,7 +113,7 @@
 </div>
  
 <!-- Form add a product -->
-<div class="form-wrapper admin-interface" style="display: none;" id="admin-panel-container">
+<div class="form-wrapper admin-interface" id="admin-panel-container" style="display: none;" >
   <div class="form-wrapper__box">
     <div class="form-wrapper__header">
       <h3 class="form-wrapper__title">Add a Product</h3>
@@ -121,19 +121,19 @@
 
     <div class="form-wrapper__body" id="product-form">
       <div class="form-wrapper__field">
-        <input type="text" class="form-wrapper__input" placeholder="Tên sản phẩm" id="name" />
+        <input type="text" class="form-wrapper__input" placeholder="Tên sản phẩm" id="add-name" />
       </div>
       <div class="form-wrapper__field">
-        <input type="number" class="form-wrapper__input" placeholder="Giá" id="price" />
+        <input type="number" class="form-wrapper__input" placeholder="Giá" id="add-price" />
       </div>
       <div class="form-wrapper__field">
-        <input type="text" class="form-wrapper__input" placeholder="Mô tả" id="description" />
+        <input type="text" class="form-wrapper__input" placeholder="Mô tả" id="add-description" />
       </div>
       <div class="form-wrapper__field">
-        <input type="text" class="form-wrapper__input" placeholder="Ảnh (URL)" id="image_url" />
+        <input type="text" class="form-wrapper__input" placeholder="Ảnh (URL)" id="add-image_url" />
       </div>
       <div class="form-wrapper__field">
-        <input type="text" class="form-wrapper__input" placeholder="Danh mục" id="category" />
+        <input type="text" class="form-wrapper__input" placeholder="Danh mục" id="add-category" />
       </div>
       <div class="form-wrapper__actions">
         <button class="btn btn--primary" id="add-product">Add</button>
@@ -179,7 +179,7 @@
 
 
 <!-- Cập nhật thông tin Form -->
-<div class="modal modal--update-info" style="display: none;">
+<div class="modal modal--update-info common-form-modal" style="display: none;">
   <div class="modal__overlay"></div>
   <div class="modal__body">
     <!-- <div class="auth-form">
