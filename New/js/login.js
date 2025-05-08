@@ -118,9 +118,8 @@
                         });
     
                         const data = await res.json();
-    
                         if (res.ok) {
-                            alert("Đăng ký thành công! Mời bạn đăng nhập.");
+                            alert("Đăng ký thành công! Vui lòng kiểm tra email để xác thực trước khi đăng nhập.");
                             registerForm.style.display = "none";
                             loginForm.style.display = "flex";
                             registerForm.reset?.();
@@ -150,6 +149,11 @@
                         const data = await res.json();
     
                         if (res.ok) {
+                            if (!data.isVerified) {
+                                alert("Tài khoản chưa được xác thực. Vui lòng kiểm tra email và xác thực trước khi đăng nhập.");
+                                return;
+                            }
+                
                             localStorage.setItem("token", data.token);
                             alert("Đăng nhập thành công");
                             modal.style.display = "none";
@@ -172,7 +176,24 @@
                     userInfoModal.style.display = "none";
                     alert("Đã đăng xuất");
                 });            
-            // Đổi mật khẩu
+                
+                document.getElementById("resend-link-btn")?.addEventListener("click", async () => {
+                    const email = loginForm.querySelector("input[name='email']").value.trim();
+                    if (!email) return alert("Vui lòng nhập email trước.");
+                    try {
+                      const res = await fetch(`${API_URL}/resend-verification`, {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ email }),
+                      });
+                  
+                      const data = await res.json();
+                      
+                      alert(data.message || "Đã gửi lại email xác thực");
+                    } catch (err) {
+                      alert("Không thể gửi lại email. Vui lòng thử lại sau.");
+                    }
+                });
 
             // Hiển thị form đổi mật khẩu
             const changePasswordBtn = document.getElementById("change-password-btn");
@@ -183,8 +204,14 @@
             });
            // Xử lý khi nhấn nút "Hủy" đổi mật khẩu
             document.getElementById("cancel-change-password")?.addEventListener("click", () => {
-                document.querySelector(".modal--change-password").style.display = "none";
-            });
+            document.querySelector(".modal--change-password").style.display = "none";
+        
+            // Xoá từng trường nhập liệu thủ công
+            document.getElementById("oldPassword").value = "";
+            document.getElementById("newPassword").value = "";
+            document.getElementById("confirmNewPassword").value = "";
+        });
+        
             
         // Xử lý khi nhấn "Đổi mật khẩu"
         document.getElementById("submit-change-password")?.addEventListener("click", async (e) => {
@@ -195,40 +222,46 @@
             const confirmNewPassword = document.getElementById("confirmNewPassword").value.trim();
         
             if (!oldPassword || !newPassword || !confirmNewPassword) {
-            return alert("Vui lòng nhập đầy đủ thông tin");
+                return alert("Vui lòng nhập đầy đủ thông tin");
             }
         
             if (newPassword !== confirmNewPassword) {
-            return alert("Mật khẩu mới không khớp");
+                return alert("Mật khẩu mới không khớp");
             }
         
-            // Lấy email từ thông tin hiển thị
+            if (oldPassword === newPassword) {
+                return alert("Mật khẩu mới không được trùng với mật khẩu cũ");
+            }
+        
             const email = document.getElementById("user-email").textContent.trim();
             const token = localStorage.getItem("token");
         
             try {
-            const res = await fetch(`${API_URL}/change-password`, {
-                method: "POST",
-                headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${token}` // nếu backend có dùng xác thực token
-                },
-                body: JSON.stringify({ email, oldPassword, newPassword })
-            });
+                const res = await fetch(`${API_URL}/change-password`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${token}`
+                    },
+                    body: JSON.stringify({ email, oldPassword, newPassword })
+                });
         
-            const data = await res.json();
+                const data = await res.json();
         
-            if (res.ok) {
-                alert("Đổi mật khẩu thành công");
-                document.getElementById("change-password-form").reset?.();
-                document.querySelector(".modal--change-password").style.display = "none";
-            } else {
-                alert(data.message || "Đổi mật khẩu thất bại");
-            }
+                if (res.ok) {
+                    alert("Đổi mật khẩu thành công");
+                    document.getElementById("oldPassword").value = "";
+                    document.getElementById("newPassword").value = "";
+                    document.getElementById("confirmNewPassword").value = "";
+                    document.querySelector(".modal--change-password").style.display = "none";
+                } else {
+                    alert(data.message || "Đổi mật khẩu thất bại");
+                }
             } catch (err) {
-            alert("Lỗi kết nối server");
+                alert("Lỗi kết nối server");
             }
         });
+        
 
         // hien thi form them san pham
         const addProductBtn = document.getElementById("admin-panel-btn");
@@ -246,6 +279,11 @@
             const description = document.getElementById("add-description").value.trim();
             const image_url = document.getElementById("add-image_url").value.trim();
             const category = document.getElementById("add-category").value.trim();
+
+            if (isNaN(price) || price < 0) {
+                alert("Giá sản phẩm không hợp lệ.");
+                return;
+            }
             const token = localStorage.getItem("token");
         
             if (!name || !price || !image_url || !category) {
@@ -265,6 +303,13 @@
         
                 const result = await res.json();
                 alert(result.message || "Thêm sản phẩm thành công!");
+                document.getElementById("add-name").value = "";
+                document.getElementById("add-price").value = "";
+                document.getElementById("add-description").value = "";
+                document.getElementById("add-image_url").value = "";
+                document.getElementById("add-category").value = "";
+
+                addProductForm.style.display = "none";
                 // loadProducts(); // nếu có
             } catch (err) {
                 console.error("❌ Lỗi khi thêm sản phẩm:", err);
@@ -318,6 +363,48 @@
         const cardmonth = document.getElementById("update-cardmonth").value.trim();
         const cardyear = document.getElementById("update-cardyear").value.trim();
         const cardday = document.getElementById("update-cardday").value.trim();
+        
+        // Kiểm tra số điện thoại
+        if (!/^0\d{9}$/.test(phonenumber)) {
+            return alert("Số điện thoại không hợp lệ.");
+        }
+
+        // Kiểm tra số thẻ (nếu có nhập)
+        if (cardnumber && !/^\d+$/.test(cardnumber)) {
+            return alert("Số thẻ không hợp lệ.");
+        }
+
+        // Ép kiểu để đảm bảo là số
+        const day = parseInt(cardday, 10);
+        const month = parseInt(cardmonth, 10);
+        const year = parseInt(cardyear, 10);
+        const currentYear = new Date().getFullYear();
+
+        // Kiểm tra tháng
+        if (isNaN(month) || month < 1 || month > 12) {
+            return alert("Tháng không hợp lệ.");
+        }
+
+        // Kiểm tra ngày
+        if (isNaN(day) || day < 1 || day > 31) {
+            return alert("Ngày không hợp lệ.");
+        }
+
+        // Kiểm tra năm
+        if (isNaN(year)) {
+            return alert(`Năm không hợp lệ.`);
+        }
+
+        // Kiểm tra ngày hợp lệ thực sự (ví dụ: không có ngày 31/02)
+        const isValidDate = (d, m, y) => {
+            const date = new Date(y, m - 1, d);
+            return date.getFullYear() === y && date.getMonth() === m - 1 && date.getDate() === d;
+        };
+
+        if (!isValidDate(day, month, year)) {
+            return alert("Ngày, tháng, năm không hợp lệ");
+        }
+
 
         const token = localStorage.getItem("token");
 
