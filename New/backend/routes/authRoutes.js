@@ -16,4 +16,17 @@ router.get('/me', verifyToken, authController.getMe);
 router.post('/change-password', authController.changePassword);
 
 router.put('/update', verifyToken, authController.updateUserInfo);
+
+router.get('/verify-email', authController.verifyEmail);
+
+const rateLimit = require("express-rate-limit");
+
+const resendLimiter = rateLimit({
+    windowMs: 5 * 60 * 1000,
+    max: 3,
+    message: { message: "Bạn đã gửi quá nhiều yêu cầu. Vui lòng thử lại sau." }
+,});
+  
+router.post('/resend-verification', resendLimiter, authController.resendVerification);
+
 module.exports = router;
